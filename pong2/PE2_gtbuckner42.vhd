@@ -418,6 +418,7 @@ begin
 	end process;
 	
 	move_paddle_L:process(dispEN,Rotary_clk)
+	
 	variable enable: std_logic:= '1'; --this ensures each click gets registerd once
 	variable paddle_y:integer:=240;
 	variable move_amt:integer:=10;--in form of pixels
@@ -493,15 +494,67 @@ begin
 		end if;
 		
 		
-		if(falling_edge(dispEN)) then ---move box at end of frame(TEST)
+		if(falling_edge(dispEN)) then ---move box at end of frame
 			left_paddle_y <= paddle_y;
-			--right_paddle_y<= paddle_y;
-		--right paddle will eventually be moved by the accelerometer GB4/9/2024
 		end if;
 		  
 		   
 	end process;
+	
+	--MODIFIED CODE TAKEN FROM PREVIOUS HOMEWORK
+	move_paddle_R:process(dispEn)
+	  --variable box_x_10000:integer:= 3000000; --in form of (pixels * 10000)
+	  variable box_y_10000:integer:= 2000000;
+	 -- variable box_x:integer:=box1_col;
+	  variable box_y:integer:=right_paddle_y;
+	  variable scalarx:integer:= 4;
+	  variable scalary:integer:= 4;
+	 begin
 		
+		if(rising_edge(dispEN)) then --calculate stuff while frame is being printed
+			
+			--box_x_10000:= datax_toPixelX + box_x_10000;--in form of (pix/1000frames) + pixles*1000--
+			box_y_10000:= datay_toPixelY + box_y_10000;
+			
+			--box_x:= box_x_10000/10000/scalarx; --truncated value in form of pixels
+			box_y:= box_y_10000/10000/scalary; --these are the col and row signals in variable form
+			
+				--collision handling
+				 
+				if(box_y < (upper_box + upper_box_h)) then
+					box_y:= upper_box + upper_box_h;
+					box_y_10000:= (box_y) *10000*scalary;
+				
+				elsif (box_y + paddle_height > lower_box ) then
+					box_y:= lower_box - paddle_height;
+					box_y_10000:= (box_y) *10000*scalary;
+				end if;				 
+				--if(box_x < 0 or (box_x + 33) > 640) then
+				--	box_x:= box1_col;
+					--box_x_10000:=box1_col * 10000*scalarx;
+				--end if;
+				
+--				if(key0 = '0') then --key0 is active low-
+	--				--box_x:= 320;
+		--			box_y:= 220;
+					--box_x_10000:= 320*10000*scalarX;
+			--		box_y_10000:= 220*10000*scalary;
+			--	end if;
+				
+		 end if; --end rising_edge if statement
+		 
+		 if(Rst_game = '1') then
+			box_y := 220;
+			box_y_10000:= 220*10000*scalary;
+		end if;
+		
+		if(falling_edge(dispEN)) then ---move box at end of frame(TEST)
+			--box1_col <= box_x;
+			right_paddle_y <= box_y;
+		end if;
+	end process;
+	
+	
 	setSeedHandler:process(pll_out_to_vga_controller_in, seed)-------THIS SETS SEED ON STARTUP OR SEED CHANGE
 	variable startUpVar: integer:= 0; --will allow seed to be set
 	variable seed_current: std_logic_vector(20 downto 0);
@@ -538,7 +591,7 @@ begin
 		end if;	
 	end process;
 		
---			movebox:process(dispEn)
+--		movebox:process(dispEn)
 --	  variable box_x_10000:integer:= 3000000; --in form of (pixels * 10000)
 --	  variable box_y_10000:integer:= 2000000;
 --	  variable box_x:integer:=box1_col;
