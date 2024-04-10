@@ -529,17 +529,7 @@ begin
 					box_y:= lower_box - paddle_height;
 					box_y_10000:= (box_y) *10000*scalary;
 				end if;				 
-				--if(box_x < 0 or (box_x + 33) > 640) then
-				--	box_x:= box1_col;
-					--box_x_10000:=box1_col * 10000*scalarx;
-				--end if;
-				
---				if(key0 = '0') then --key0 is active low-
-	--				--box_x:= 320;
-		--			box_y:= 220;
-					--box_x_10000:= 320*10000*scalarX;
-			--		box_y_10000:= 220*10000*scalary;
-			--	end if;
+
 				
 		 end if; --end rising_edge if statement
 		 
