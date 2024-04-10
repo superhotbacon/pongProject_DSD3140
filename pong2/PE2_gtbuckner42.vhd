@@ -252,6 +252,8 @@ architecture vga_structural of PE2_gtbuckner42  is
 		signal Current_State : State_Type;
 		signal Next_State : State_Type;
 	
+	
+	--THIS IS A TEST TO PUSh
 begin
 	max10_clk <= pixel_clk_m;
 	reset_n_m <= not reset_n_m_sw0;
