@@ -417,7 +417,7 @@ begin
 		end if;
 	end process;
 	
-	move_paddle_LandR:process(dispEN,Rotary_clk)
+	move_paddle_L:process(dispEN,Rotary_clk)
 	variable enable: std_logic:= '1'; --this ensures each click gets registerd once
 	variable paddle_y:integer:=240;
 	variable move_amt:integer:=10;--in form of pixels
@@ -481,7 +481,7 @@ begin
 		 end if;
 		
 		if(Rst_game = '1') then
-			Paddle_y := 240;
+			Paddle_y := 220;
 			--TEST
 			Player_L_Score <= 0;
 			Player_R_score <= 0;
@@ -495,7 +495,7 @@ begin
 		
 		if(falling_edge(dispEN)) then ---move box at end of frame(TEST)
 			left_paddle_y <= paddle_y;
-			right_paddle_y<= paddle_y;
+			--right_paddle_y<= paddle_y;
 		--right paddle will eventually be moved by the accelerometer GB4/9/2024
 		end if;
 		  

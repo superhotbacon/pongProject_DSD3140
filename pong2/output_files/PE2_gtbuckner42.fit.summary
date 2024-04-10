@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Apr 10 14:52:01 2024
+Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Revision Name : PE2_gtbuckner42
+Top-level Entity Name : PE2_gtbuckner42
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 5,012 / 49,760 ( 10 % )
+    Total combinational functions : 4,902 / 49,760 ( 10 % )
+    Dedicated logic registers : 543 / 49,760 ( 1 % )
+Total registers : 543
+Total pins : 142 / 360 ( 39 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 8 / 288 ( 3 % )
+Total PLLs : 1 / 4 ( 25 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )
