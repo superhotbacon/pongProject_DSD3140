@@ -1,0 +1,353 @@
+-- ECE 4110 VGA example
+--
+-- This code is the top level structural file for code that can
+-- generate an image on a VGA display. The default mode is 640x480 at 60 Hz
+--
+-- Note: This file is not where the pattern/image is produced
+--
+-- Tyler McCormick 
+-- 10/13/2019
+
+
+library   ieee;
+use       ieee.std_logic_1164.all;
+use       IEEE.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+entity PE2_gtbuckner42 is
+	
+	port(
+	
+		-- Inputs for image generation
+		
+		pixel_clk_m		:	IN	STD_LOGIC;     -- pixel clock for VGA mode being used 
+		reset_n_m		:	IN	STD_LOGIC; --active low asycnchronous reset
+		
+		-- Outputs for image generation 
+		
+		h_sync_m		:	OUT	STD_LOGIC;	--horiztonal sync pulse
+		v_sync_m		:	OUT	STD_LOGIC;	--vertical sync pulse 
+		
+		red_m      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
+		green_m    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
+		blue_m     :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
+	
+		--below is for accelerometer
+		-- max10_clk      :    IN STD_LOGIC; REPLACED BY PIXEL_CLK_M
+		
+		GSENSOR_CS_N : OUT	STD_LOGIC;
+		GSENSOR_SCLK : OUT	STD_LOGIC;
+		GSENSOR_SDI  : INOUT	STD_LOGIC;
+		GSENSOR_SDO  : INOUT	STD_LOGIC;
+		
+		dFix         : OUT STD_LOGIC_VECTOR(5 downto 0) := "111111";
+		ledFix       : OUT STD_LOGIC_VECTOR(9 downto 0) := "0000000000";
+		
+		hex5         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex4         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		hex3         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex2         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		hex1         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex0         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		data_x      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		data_y      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		data_z      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		
+		Key0			: in STd_logic;
+		
+		Rotary_clk:in std_logic;
+		Rotary_DT:in std_logic
+	);
+	
+end PE2_gtbuckner42;
+
+architecture vga_structural of PE2_gtbuckner42  is
+
+	component vga_pll_25_175 is 
+	
+		port(
+		
+			inclk0		:	IN  STD_LOGIC := '0';  -- Input clock that gets divided (50 MHz for max10)
+			c0			:	OUT STD_LOGIC          -- Output clock for vga timing (25.175 MHz)
+		
+		);
+		
+	end component;
+	
+	component vga_controller is 
+	
+		port(
+		
+			pixel_clk	:	IN	STD_LOGIC;	--pixel clock at frequency of VGA mode being used
+			reset_n		:	IN	STD_LOGIC;	--active low asycnchronous reset
+			h_sync		:	OUT	STD_LOGIC;	--horiztonal sync pulse
+			v_sync		:	OUT	STD_LOGIC;	--vertical sync pulse
+			disp_ena	:	OUT	STD_LOGIC;	--display enable ('1' = display time, '0' = blanking time)
+			column		:	OUT	INTEGER;	--horizontal pixel coordinate
+			row			:	OUT	INTEGER;	--vertical pixel coordinate
+			n_blank		:	OUT	STD_LOGIC;	--direct blacking output to DAC
+			n_sync		:	OUT	STD_LOGIC   --sync-on-green output to DAC
+		
+		);
+		
+	end component;
+	
+	component hw_image_generator is
+	
+		port(
+		
+    disp_ena :  IN   STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
+    row      :  IN   INTEGER;    --row pixel coordinate
+    column   :  IN   INTEGER;    --column pixel coordinate
+    red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
+    green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
+    blue     :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
+	 
+	 box1_col :  in integer;
+	 box1_row :  in integer;
+	 upper_box:  in integer;--spawn location for the boundary box
+	 lower_box:  in integer;
+	 upper_box_h: in integer;--height of box
+	 lower_box_h: in integer;
+	 Middle_box_w: in integer; --width of middle box
+	 Middle_box: in integer;
+	 left_paddle_x:in integer;
+	 left_paddle_y:in integer;
+	 right_paddle_y:in integer;
+	 right_paddle_x:in integer;
+	 paddle_width:in integer;
+	 paddle_height:in integer
+	 );
+		
+	end component;
+	
+	
+	--leaving this PRGN for later use in final project
+	component PRNG_gtbuckner42 is
+	  port(
+			seed: in std_logic_vector(20 downto 0); --seed cannot be all zero for good practice, input seed is 21 bits
+			setSeed_asyn: in std_logic; --key1
+			clk: in std_logic; --key0, clk
+			Psuedo_Random_Num: out std_logic_vector(4 downto 0));
+	end component;
+	
+	--THIS IS The ACCELEROMETER
+	component hw6p3Modified is
+	port(
+		 max10_clk      :    IN STD_LOGIC;
+		
+		GSENSOR_CS_N : OUT	STD_LOGIC;
+		GSENSOR_SCLK : OUT	STD_LOGIC;
+		GSENSOR_SDI  : INOUT	STD_LOGIC;
+		GSENSOR_SDO : INOUT	STD_LOGIC;
+		
+		dFix         : OUT STD_LOGIC_VECTOR(5 downto 0) := "111111";
+		ledFix       : OUT STD_LOGIC_VECTOR(9 downto 0) := "0000000000";
+		
+		hex5         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex4         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		hex3         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex2         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		hex1         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		hex0         : OUT STD_LOGIC_VECTOR(6 downto 0);
+		
+		data_x      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		data_y      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		data_z      : BUFFER STD_LOGIC_VECTOR(15 downto 0);
+		
+		datax_toPixelx: out integer;
+		datay_toPixely: out integer
+		
+	);
+	end component;
+	
+	component dual_boot is
+		port (
+			clk_clk       : in std_logic := 'X'; -- clk
+			reset_reset_n : in std_logic := 'X'  -- reset_n
+		);
+	end component dual_boot;
+
+	
+	
+	signal pll_OUT_to_vga_controller_IN, dispEn : STD_LOGIC;
+	signal rowSignal, colSignal : INTEGER;
+
+	signal box1_col : integer:= 320;
+	signal box1_row : integer:= 50;
+
+	signal max10_clk : STD_LOGIC;
+	signal box1_direction: integer:=0 ;
+	
+	signal datax_toPixelx: integer; --in form of (x)(pixels/1000frames)/data_x
+	signal datay_toPixely: integer;
+		
+		
+	signal upper_box: integer:= 20; --upper box y spawn location
+	signal upper_box_h: integer:= 10;
+	signal lower_box_h: integer:= 10;
+	signal lower_box: integer:= 480 - lower_box_h - 20 ;--lower box y spawn location
+	signal Middle_box_w: integer:= 3; --width of middle box
+	signal Middle_box: integer:= (640/2)-Middle_box_w; --spawn location of middle box
+	
+	--The following sets signals for the paddle starting locations
+	signal left_paddle_y: integer:= 220;
+	signal left_paddle_x: integer:= 40;
+	signal right_paddle_y: integer:=220;
+	signal right_paddle_x: integer:= 640 - 40;
+	signal paddle_width: integer:=5;
+	signal paddle_height:integer:=45;
+	
+
+		
+begin
+	max10_clk <= pixel_clk_m;
+	
+	--accelerometer is below
+	accelerometer: hw6p3Modified port map(max10_clk => max10_clk, GSENSOR_CS_N => GSENSOR_CS_N, GSENSOR_SCLK => GSENSOR_SCLK, GSENSOR_SDI => GSENSOR_SDI, 
+						GSENSOR_SDO => GSENSOR_SDO, dFix => dFix, ledFix => ledFix, hex5 =>hex5,hex4=>hex4,hex3=>hex3,hex2=>hex2,hex1=>hex1,hex0=>hex0,
+						data_x=>data_x,data_y=>data_y,data_z=>data_z, datax_toPixelx => datax_toPixelx,
+						datay_toPixely => datay_toPixely);
+						
+	-- Just need 3 components for VGA system 
+	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
+	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, reset_n_m, h_sync_m,
+				v_sync_m, dispEn, colSignal, rowSignal, open, open);
+				
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, red_m, green_m, blue_m,
+			box1_col => box1_col, box1_row =>box1_row, upper_box => upper_box,
+			lower_box => lower_box, upper_box_h => upper_box_h,lower_box_h => lower_box_h,
+			middle_box_w => middle_box_w, middle_box => middle_box, left_paddle_x => left_paddle_x,
+			left_paddle_y => left_paddle_y, right_paddle_x => right_paddle_x,right_paddle_y => right_paddle_y,
+			paddle_width => paddle_width, paddle_height =>paddle_height);
+	
+   dualboot : component dual_boot
+		port map (
+			clk_clk       => pixel_clk_m,       --   clk.clk
+			reset_reset_n => '1' -- reset.reset_n
+		);
+	
+	
+		---datax_toPixelx: out integer;
+		---datay_toPixely: out integer;
+	movebox:process(dispEn)
+	  variable box_x_10000:integer:= 3000000; --in form of (pixels * 10000)
+	  variable box_y_10000:integer:= 2000000;
+	  variable box_x:integer:=box1_col;
+	  variable box_y:integer:=box1_row;
+	  variable scalarx:integer:= 4;
+	  variable scalary:integer:= 4;
+	 begin
+		
+		if(rising_edge(dispEN)) then --calculate stuff while frame is being printed
+			
+			box_x_10000:= datax_toPixelX + box_x_10000;--in form of (pix/1000frames) + pixles*1000
+			box_y_10000:= datay_toPixelY + box_y_10000;
+			
+			box_x:= box_x_10000/10000/scalarx; --truncated value in form of pixels
+			box_y:= box_y_10000/10000/scalary; --these are the col and row signals in variable form
+			
+				--collision handling
+				if(box_y < 0 or (box_y + 33) > 480) then
+					box_y := box1_row;
+					box_y_10000:= box1_row * 10000*scalary; --need to make sure the 'expanded' number is handled too
+
+		       end if;
+				if(box_x < 0 or (box_x + 33) > 640) then
+					box_x:= box1_col;
+					box_x_10000:=box1_col * 10000*scalarx;
+				end if;
+				
+				if(key0 = '0') then --key0 is active low
+					box_x:= 320;
+					box_y:= 240;
+					box_x_10000:= 320*10000*scalarX;
+					box_y_10000:= 240*10000*scalary;
+				end if;
+				
+		 end if;
+		if(falling_edge(dispEN)) then ---move box at end of frame(TEST)
+			box1_col <= box_x;
+			box1_row <= box_y;
+		end if;
+	end process;
+	
+	move_paddle_LandR:process(dispEN,Rotary_clk)
+	variable enable: std_logic:= '1'; --this ensures each click gets registerd once
+	variable paddle_y:integer:=220;
+	variable move_amt:integer:=10;--in form of pixels
+	variable prev_clk_val:integer:=-1;--negative 1 means not set
+	
+	begin
+	 if(rising_edge(dispEN)) then
+		if(prev_clk_val = -1) then --sets initial state
+			if(rotary_clk = '1') then
+				prev_clk_val := 1;
+			else
+				prev_clk_val := 0;
+			end if;
+		end if;
+
+		
+		if((prev_clk_val = 0 and rotary_clk = '1') or (prev_clk_val = 1 and rotary_clk = '0')) --checks for transition of clk
+		then
+			--now to reset previous value
+		 if(rotary_clk = '1') then
+				prev_clk_val := 1;
+		 else
+				prev_clk_val := 0;
+		 end if;
+		
+		 --logic for rotary clock
+		 if(rotary_clk = '1' and enable = '1') then
+			if(rotary_clk /= rotary_dt) then
+				paddle_y:= paddle_y + move_amt;
+				enable := '0';
+				end if;
+			if(rotary_clk = rotary_dt) then
+				paddle_y:= paddle_y - move_amt;
+				enable := '0';
+				end if;
+		 
+		 elsif(rotary_clk = '0' and enable = '1') then
+			if(rotary_clk /= rotary_dt) then
+				paddle_y:= paddle_y + move_amt;
+				enable := '0';
+				end if;
+			if(rotary_clk = rotary_dt) then
+				paddle_y:= paddle_y - move_amt;
+				enable := '0';
+				end if;	
+		   end if; --end rotary logic ifs
+	    end if; --end transition check if statement
+		  
+			--collision handling
+		   if(paddle_y < (upper_box + upper_box_h)) then
+			paddle_y:= upper_box + upper_box_h;
+		   elsif (paddle_y + paddle_height > lower_box ) then
+			paddle_y:= lower_box - paddle_height;
+		   end if;
+		  
+		 end if; --end rising_edge(rotary_clk) if statement
+	 
+		 
+		 if((rotary_clk xor rotary_dt) = '0' and dispEN = '0') then --this resets enable
+				enable := '1';
+		 end if;
+		
+		
+		if(falling_edge(dispEN)) then ---move box at end of frame(TEST)
+			left_paddle_y <= paddle_y;
+			right_paddle_y<= paddle_y;
+		
+		end if;
+		  
+		  
+	end process;
+		
+
+end vga_structural;
