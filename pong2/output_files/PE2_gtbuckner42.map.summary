@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Apr 10 14:51:16 2024
+Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Revision Name : PE2_gtbuckner42
+Top-level Entity Name : PE2_gtbuckner42
+Family : MAX 10
+Total logic elements : 5,109
+    Total combinational functions : 4,901
+    Dedicated logic registers : 543
+Total registers : 543
+Total pins : 142
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 8
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0
