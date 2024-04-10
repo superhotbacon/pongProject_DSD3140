@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PE2_gtbuckner42
-Wed Apr 10 14:51:16 2024
+Wed Apr 10 15:25:05 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -19,49 +19,51 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
  11. State Machine - |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|current_state
  12. State Machine - |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|state
  13. Registers Protected by Synthesis
- 14. Registers Removed During Synthesis
- 15. Removed Registers Triggering Further Register Optimizations
- 16. General Register Statistics
- 17. Inverted Register Statistics
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
- 20. Source assignments for dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
- 21. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|pll:pll_inst|altpll:altpll_component
- 22. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0
- 23. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0
- 24. Parameter Settings for User Entity Instance: vga_pll_25_175:U1|altpll:altpll_component
- 25. Parameter Settings for User Entity Instance: vga_controller:U2
- 26. Parameter Settings for User Entity Instance: hw_image_generator:U3
- 27. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_dual_boot:dual_boot
- 28. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller
- 29. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
- 30. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
- 31. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod0
- 32. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod1
- 33. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod2
- 34. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
- 35. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 36. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2
- 37. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 38. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 39. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 40. altpll Parameter Settings by Entity Instance
- 41. lpm_mult Parameter Settings by Entity Instance
- 42. Port Connectivity Checks: "dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1"
- 43. Port Connectivity Checks: "dual_boot:dualboot|altera_reset_controller:rst_controller"
- 44. Port Connectivity Checks: "dual_boot:dualboot|altera_dual_boot:dual_boot"
- 45. Port Connectivity Checks: "dual_boot:dualboot"
- 46. Port Connectivity Checks: "hw_image_generator:U3"
- 47. Port Connectivity Checks: "vga_controller:U2"
- 48. Port Connectivity Checks: "PRNG_gtbuckner42:PRGN_2"
- 49. Port Connectivity Checks: "PRNG_gtbuckner42:PRGN_1"
- 50. Port Connectivity Checks: "hw6p3Modified:accelerometer|ADXL345_controller:U0"
- 51. Port Connectivity Checks: "hw6p3Modified:accelerometer|pll:pll_inst"
- 52. Port Connectivity Checks: "hw6p3Modified:accelerometer"
- 53. Post-Synthesis Netlist Statistics for Top Partition
- 54. Elapsed Time Per Partition
- 55. Analysis & Synthesis Messages
- 56. Analysis & Synthesis Suppressed Messages
+ 14. User-Specified and Inferred Latches
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 21. Source assignments for dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+ 22. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|pll:pll_inst|altpll:altpll_component
+ 23. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0
+ 24. Parameter Settings for User Entity Instance: hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0
+ 25. Parameter Settings for User Entity Instance: vga_pll_25_175:U1|altpll:altpll_component
+ 26. Parameter Settings for User Entity Instance: vga_controller:U2
+ 27. Parameter Settings for User Entity Instance: hw_image_generator:U3
+ 28. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_dual_boot:dual_boot
+ 29. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller
+ 30. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 31. Parameter Settings for User Entity Instance: dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+ 32. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod0
+ 33. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod1
+ 34. Parameter Settings for Inferred Entity Instance: hw_image_generator:U3|lpm_divide:Mod2
+ 35. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 36. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 37. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2
+ 38. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 39. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 40. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 41. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 42. altpll Parameter Settings by Entity Instance
+ 43. lpm_mult Parameter Settings by Entity Instance
+ 44. Port Connectivity Checks: "dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1"
+ 45. Port Connectivity Checks: "dual_boot:dualboot|altera_reset_controller:rst_controller"
+ 46. Port Connectivity Checks: "dual_boot:dualboot|altera_dual_boot:dual_boot"
+ 47. Port Connectivity Checks: "dual_boot:dualboot"
+ 48. Port Connectivity Checks: "hw_image_generator:U3"
+ 49. Port Connectivity Checks: "vga_controller:U2"
+ 50. Port Connectivity Checks: "PRNG_gtbuckner42:PRGN_2"
+ 51. Port Connectivity Checks: "PRNG_gtbuckner42:PRGN_1"
+ 52. Port Connectivity Checks: "hw6p3Modified:accelerometer|ADXL345_controller:U0"
+ 53. Port Connectivity Checks: "hw6p3Modified:accelerometer|pll:pll_inst"
+ 54. Port Connectivity Checks: "hw6p3Modified:accelerometer"
+ 55. Post-Synthesis Netlist Statistics for Top Partition
+ 56. Elapsed Time Per Partition
+ 57. Analysis & Synthesis Messages
+ 58. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -88,15 +90,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 10 14:51:16 2024       ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 10 15:25:05 2024       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; PE2_gtbuckner42                             ;
 ; Top-level Entity Name              ; PE2_gtbuckner42                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 5,109                                       ;
-;     Total combinational functions  ; 4,901                                       ;
-;     Dedicated logic registers      ; 543                                         ;
-; Total registers                    ; 543                                         ;
+; Total logic elements               ; 6,342                                       ;
+;     Total combinational functions  ; 6,107                                       ;
+;     Dedicated logic registers      ; 635                                         ;
+; Total registers                    ; 635                                         ;
 ; Total pins                         ; 142                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -210,9 +212,9 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processors 8-12        ;   0.0%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processors 8-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -296,20 +298,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------------------+
 ; Resource                                    ; Usage                      ;
 +---------------------------------------------+----------------------------+
-; Estimated Total logic elements              ; 5,109                      ;
+; Estimated Total logic elements              ; 6,342                      ;
 ;                                             ;                            ;
-; Total combinational functions               ; 4901                       ;
+; Total combinational functions               ; 6107                       ;
 ; Logic element usage by number of LUT inputs ;                            ;
-;     -- 4 input functions                    ; 1741                       ;
-;     -- 3 input functions                    ; 1321                       ;
-;     -- <=2 input functions                  ; 1839                       ;
+;     -- 4 input functions                    ; 2066                       ;
+;     -- 3 input functions                    ; 1670                       ;
+;     -- <=2 input functions                  ; 2371                       ;
 ;                                             ;                            ;
 ; Logic elements by mode                      ;                            ;
-;     -- normal mode                          ; 3268                       ;
-;     -- arithmetic mode                      ; 1633                       ;
+;     -- normal mode                          ; 4036                       ;
+;     -- arithmetic mode                      ; 2071                       ;
 ;                                             ;                            ;
-; Total registers                             ; 543                        ;
-;     -- Dedicated logic registers            ; 543                        ;
+; Total registers                             ; 635                        ;
+;     -- Dedicated logic registers            ; 635                        ;
 ;     -- I/O registers                        ; 0                          ;
 ;                                             ;                            ;
 ; I/O pins                                    ; 142                        ;
@@ -320,9 +322,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                          ;
 ;                                             ;                            ;
 ; Maximum fan-out node                        ; vga_controller:U2|disp_ena ;
-; Maximum fan-out                             ; 263                        ;
-; Total fan-out                               ; 16355                      ;
-; Average fan-out                             ; 2.85                       ;
+; Maximum fan-out                             ; 355                        ;
+; Total fan-out                               ; 19956                      ;
+; Average fan-out                             ; 2.83                       ;
 +---------------------------------------------+----------------------------+
 
 
@@ -331,7 +333,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                   ; Entity Name               ; Library Name ;
 +-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |PE2_gtbuckner42                                      ; 4901 (580)          ; 543 (295)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 142  ; 0            ; 0          ; |PE2_gtbuckner42                                                                                                                      ; PE2_gtbuckner42           ; work         ;
+; |PE2_gtbuckner42                                      ; 6107 (765)          ; 635 (387)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 142  ; 0            ; 0          ; |PE2_gtbuckner42                                                                                                                      ; PE2_gtbuckner42           ; work         ;
 ;    |PRNG_gtbuckner42:PRGN_2|                          ; 34 (34)             ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|PRNG_gtbuckner42:PRGN_2                                                                                              ; PRNG_gtbuckner42          ; work         ;
 ;    |dual_boot:dualboot|                               ; 14 (0)              ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|dual_boot:dualboot                                                                                                   ; dual_boot                 ; dual_boot    ;
 ;       |altera_dual_boot:dual_boot|                    ; 14 (0)              ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot                                                                        ; altera_dual_boot          ; dual_boot    ;
@@ -339,7 +341,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |alt_dual_boot:alt_dual_boot|             ; 13 (13)             ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot ; alt_dual_boot             ; dual_boot    ;
 ;       |altera_reset_controller:rst_controller|        ; 0 (0)               ; 3 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|dual_boot:dualboot|altera_reset_controller:rst_controller                                                            ; altera_reset_controller   ; dual_boot    ;
 ;          |altera_reset_synchronizer:alt_rst_sync_uq1| ; 0 (0)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1                 ; altera_reset_synchronizer ; dual_boot    ;
-;    |hw6p3Modified:accelerometer|                      ; 172 (0)             ; 133 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer                                                                                          ; hw6p3Modified             ; work         ;
+;    |hw6p3Modified:accelerometer|                      ; 274 (102)           ; 133 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer                                                                                          ; hw6p3Modified             ; work         ;
 ;       |ADXL345_controller:U0|                         ; 144 (0)             ; 133 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0                                                                    ; ADXL345_controller        ; work         ;
 ;          |gsensor:U0|                                 ; 144 (100)           ; 133 (95)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0                                                         ; gsensor                   ; work         ;
 ;             |spi:u0|                                  ; 44 (44)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0                                                  ; spi                       ; work         ;
@@ -347,22 +349,27 @@ https://fpgasoftware.intel.com/eula.
 ;       |bcd_7segment:U2|                               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|bcd_7segment:U2                                                                          ; bcd_7segment              ; work         ;
 ;       |bcd_7segment:U3|                               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|bcd_7segment:U3                                                                          ; bcd_7segment              ; work         ;
 ;       |bcd_7segment:U4|                               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|bcd_7segment:U4                                                                          ; bcd_7segment              ; work         ;
-;    |hw_image_generator:U3|                            ; 2278 (567)          ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3                                                                                                ; hw_image_generator        ; work         ;
+;    |hw_image_generator:U3|                            ; 2332 (621)          ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3                                                                                                ; hw_image_generator        ; work         ;
 ;       |lpm_divide:Mod0|                               ; 1711 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3|lpm_divide:Mod0                                                                                ; lpm_divide                ; work         ;
 ;          |lpm_divide_25o:auto_generated|              ; 1711 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                  ; lpm_divide_25o            ; work         ;
 ;             |abs_divider_4dg:divider|                 ; 1711 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                          ; abs_divider_4dg           ; work         ;
 ;                |alt_u_div_ske:divider|                ; 1595 (1595)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider    ; alt_u_div_ske             ; work         ;
 ;                |lpm_abs_8b9:my_abs_num|               ; 52 (52)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num   ; lpm_abs_8b9               ; work         ;
-;    |lpm_divide:Div0|                                  ; 864 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0                                                                                                      ; lpm_divide                ; work         ;
-;       |lpm_divide_0do:auto_generated|                 ; 864 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated                                                                        ; lpm_divide_0do            ; work         ;
-;          |abs_divider_5dg:divider|                    ; 864 (40)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated|abs_divider_5dg:divider                                                ; abs_divider_5dg           ; work         ;
+;    |lpm_divide:Div0|                                  ; 862 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0                                                                                                      ; lpm_divide                ; work         ;
+;       |lpm_divide_0do:auto_generated|                 ; 862 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated                                                                        ; lpm_divide_0do            ; work         ;
+;          |abs_divider_5dg:divider|                    ; 862 (40)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated|abs_divider_5dg:divider                                                ; abs_divider_5dg           ; work         ;
 ;             |alt_u_div_uke:divider|                   ; 773 (773)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|alt_u_div_uke:divider                          ; alt_u_div_uke             ; work         ;
-;             |lpm_abs_8b9:my_abs_num|                  ; 51 (51)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|lpm_abs_8b9:my_abs_num                         ; lpm_abs_8b9               ; work         ;
+;             |lpm_abs_8b9:my_abs_num|                  ; 49 (49)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div0|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|lpm_abs_8b9:my_abs_num                         ; lpm_abs_8b9               ; work         ;
 ;    |lpm_divide:Div1|                                  ; 877 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div1                                                                                                      ; lpm_divide                ; work         ;
 ;       |lpm_divide_0do:auto_generated|                 ; 877 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div1|lpm_divide_0do:auto_generated                                                                        ; lpm_divide_0do            ; work         ;
 ;          |abs_divider_5dg:divider|                    ; 877 (40)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div1|lpm_divide_0do:auto_generated|abs_divider_5dg:divider                                                ; abs_divider_5dg           ; work         ;
 ;             |alt_u_div_uke:divider|                   ; 782 (782)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div1|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|alt_u_div_uke:divider                          ; alt_u_div_uke             ; work         ;
 ;             |lpm_abs_8b9:my_abs_num|                  ; 55 (55)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div1|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|lpm_abs_8b9:my_abs_num                         ; lpm_abs_8b9               ; work         ;
+;    |lpm_divide:Div2|                                  ; 867 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div2                                                                                                      ; lpm_divide                ; work         ;
+;       |lpm_divide_0do:auto_generated|                 ; 867 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div2|lpm_divide_0do:auto_generated                                                                        ; lpm_divide_0do            ; work         ;
+;          |abs_divider_5dg:divider|                    ; 867 (40)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div2|lpm_divide_0do:auto_generated|abs_divider_5dg:divider                                                ; abs_divider_5dg           ; work         ;
+;             |alt_u_div_uke:divider|                   ; 782 (782)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div2|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|alt_u_div_uke:divider                          ; alt_u_div_uke             ; work         ;
+;             |lpm_abs_8b9:my_abs_num|                  ; 45 (45)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_divide:Div2|lpm_divide_0do:auto_generated|abs_divider_5dg:divider|lpm_abs_8b9:my_abs_num                         ; lpm_abs_8b9               ; work         ;
 ;    |lpm_mult:Mult0|                                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_mult:Mult0                                                                                                       ; lpm_mult                  ; work         ;
 ;       |multcore:mult_core|                            ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_mult:Mult0|multcore:mult_core                                                                                    ; multcore                  ; work         ;
 ;    |lpm_mult:Mult1|                                   ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |PE2_gtbuckner42|lpm_mult:Mult1                                                                                                       ; lpm_mult                  ; work         ;
@@ -474,6 +481,48 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                            ;
++-------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; Latch Name                                                        ; Latch Enable Signal                                               ; Free of Timing Hazards ;
++-------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[30] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[29] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[28] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[27] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[26] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[25] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[24] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[23] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[22] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[21] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[20] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[19] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[18] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[17] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[16] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[15] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[14] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[13] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[12] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[11] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[10] ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[9]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[8]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[7]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[6]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[5]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[4]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[3]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[2]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[1]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[0]  ; hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] ; yes                    ;
+; Number of user-specified and inferred latches = 32                ;                                                                   ;                        ;
++-------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                                                                                                                                                                                                                                                                       ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -496,8 +545,10 @@ Encoding Type:  One-Hot
 ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[0..11,14..37]                                      ; Merged with dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[38]             ;
 ; ball1_row[31]                                                                                                                                                                          ; Merged with ball1_row[30]                                                                                                                                       ;
 ; ball1_col[31]                                                                                                                                                                          ; Merged with ball1_col[30]                                                                                                                                       ;
+; right_paddle_y[31]                                                                                                                                                                     ; Merged with right_paddle_y[30]                                                                                                                                  ;
 ; \moveball:ball_y[31]                                                                                                                                                                   ; Merged with \moveball:ball_y[30]                                                                                                                                ;
 ; \moveball:ball_x[31]                                                                                                                                                                   ; Merged with \moveball:ball_x[30]                                                                                                                                ;
+; \move_paddle_R:box_y[31]                                                                                                                                                               ; Merged with \move_paddle_R:box_y[30]                                                                                                                            ;
 ; \moveball:x_inc[1..4,10,11,13,14,16,17,19..31]                                                                                                                                         ; Merged with \moveball:x_inc[0]                                                                                                                                  ;
 ; \moveball:y_inc[26..31]                                                                                                                                                                ; Merged with \moveball:x_inc[0]                                                                                                                                  ;
 ; \moveball:x_inc[5..9,15,18]                                                                                                                                                            ; Merged with \moveball:x_inc[12]                                                                                                                                 ;
@@ -511,7 +562,9 @@ Encoding Type:  One-Hot
 ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|busy                                                              ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[12,13]                                             ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[39]                                                ; Merged with dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[40]             ;
+; \move_paddle_R:box_y[30]                                                                                                                                                               ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; \move_paddle_L:paddle_y[31]                                                                                                                                                            ; Stuck at GND due to stuck port data_in                                                                                                                          ;
+; right_paddle_y[30]                                                                                                                                                                     ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; left_paddle_y[31]                                                                                                                                                                      ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; vga_controller:U2|row[9]                                                                                                                                                               ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; Current_State.update_score_rst_ball                                                                                                                                                    ; Lost fanout                                                                                                                                                     ;
@@ -554,7 +607,7 @@ Encoding Type:  One-Hot
 ; \moveball:y_inc[0..2,14..25]                                                                                                                                                           ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; vga_controller:U2|column[31]                                                                                                                                                           ; Stuck at GND due to stuck port data_in                                                                                                                          ;
 ; vga_controller:U2|row[31]                                                                                                                                                              ; Stuck at GND due to stuck port data_in                                                                                                                          ;
-; Total Number of Removed Registers = 289                                                                                                                                                ;                                                                                                                                                                 ;
+; Total Number of Removed Registers = 293                                                                                                                                                ;                                                                                                                                                                 ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -627,6 +680,8 @@ Encoding Type:  One-Hot
 ;                                                                                                                                                     ; due to stuck port clock_enable ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|lpm_shiftreg:write_reg|dffs[12]                                 ;
 ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|operations_reg[3]              ; Stuck at GND                   ; dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|write_reg_data[40]                                              ;
 ;                                                                                                                                                     ; due to stuck port data_in      ;                                                                                                                                                                                      ;
+; \move_paddle_R:box_y[30]                                                                                                                            ; Stuck at GND                   ; right_paddle_y[30]                                                                                                                                                                   ;
+;                                                                                                                                                     ; due to stuck port data_in      ;                                                                                                                                                                                      ;
 ; \move_paddle_L:paddle_y[31]                                                                                                                         ; Stuck at GND                   ; left_paddle_y[31]                                                                                                                                                                    ;
 ;                                                                                                                                                     ; due to stuck port data_in      ;                                                                                                                                                                                      ;
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -637,10 +692,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 543   ;
+; Total registers                              ; 635   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 64    ;
-; Number of registers using Asynchronous Clear ; 146   ;
+; Number of registers using Asynchronous Clear ; 208   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 325   ;
 ; Number of registers using Preset             ; 0     ;
@@ -667,11 +722,20 @@ Encoding Type:  One-Hot
 ; left_paddle_y[6]                                                                                                                             ; 2       ;
 ; left_paddle_y[5]                                                                                                                             ; 2       ;
 ; left_paddle_y[4]                                                                                                                             ; 2       ;
+; right_paddle_y[7]                                                                                                                            ; 2       ;
+; right_paddle_y[6]                                                                                                                            ; 2       ;
+; right_paddle_y[5]                                                                                                                            ; 2       ;
+; right_paddle_y[4]                                                                                                                            ; 2       ;
 ; \move_paddle_L:paddle_y[7]                                                                                                                   ; 4       ;
 ; \move_paddle_L:paddle_y[6]                                                                                                                   ; 4       ;
 ; \move_paddle_L:paddle_y[4]                                                                                                                   ; 4       ;
 ; \move_paddle_L:paddle_y[3]                                                                                                                   ; 4       ;
 ; \move_paddle_L:paddle_y[2]                                                                                                                   ; 4       ;
+; \move_paddle_R:box_y[7]                                                                                                                      ; 1       ;
+; \move_paddle_R:box_y[6]                                                                                                                      ; 1       ;
+; \move_paddle_R:box_y[4]                                                                                                                      ; 1       ;
+; \move_paddle_R:box_y[3]                                                                                                                      ; 1       ;
+; \move_paddle_R:box_y[2]                                                                                                                      ; 1       ;
 ; \moveball:ball_y_10000[20]                                                                                                                   ; 1       ;
 ; \moveball:ball_y_10000[19]                                                                                                                   ; 1       ;
 ; \moveball:ball_y_10000[18]                                                                                                                   ; 1       ;
@@ -692,6 +756,13 @@ Encoding Type:  One-Hot
 ; \move_paddle_L:prev_clk_val[10]                                                                                                              ; 4       ;
 ; \move_paddle_L:prev_clk_val[0]                                                                                                               ; 4       ;
 ; \move_paddle_L:enable                                                                                                                        ; 2       ;
+; \move_paddle_R:box_y_10000[23]                                                                                                               ; 1       ;
+; \move_paddle_R:box_y_10000[18]                                                                                                               ; 1       ;
+; \move_paddle_R:box_y_10000[17]                                                                                                               ; 1       ;
+; \move_paddle_R:box_y_10000[14]                                                                                                               ; 1       ;
+; \move_paddle_R:box_y_10000[10]                                                                                                               ; 1       ;
+; \move_paddle_R:box_y_10000[9]                                                                                                                ; 1       ;
+; \move_paddle_R:box_y_10000[8]                                                                                                                ; 1       ;
 ; dual_boot:dualboot|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out ; 5       ;
 ; PRNG_gtbuckner42:PRGN_2|LFSR3[17]                                                                                                            ; 1       ;
 ; PRNG_gtbuckner42:PRGN_2|LFSR3[10]                                                                                                            ; 2       ;
@@ -732,7 +803,7 @@ Encoding Type:  One-Hot
 ; PRNG_gtbuckner42:PRGN_2|LFSR3[0]                                                                                                             ; 1       ;
 ; PRNG_gtbuckner42:PRGN_2|LFSR1[0]                                                                                                             ; 1       ;
 ; PRNG_gtbuckner42:PRGN_2|LFSR2[0]                                                                                                             ; 1       ;
-; Total number of inverted registers = 80                                                                                                      ;         ;
+; Total number of inverted registers = 96                                                                                                      ;         ;
 +----------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -741,17 +812,20 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|clk_counter[2]                                                        ;
-; 3:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|\move_paddle_L:paddle_y[21]                                                                                                               ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|clk_counter[3]                                                        ;
+; 3:1                ; 47 bits   ; 94 LEs        ; 94 LEs               ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|\move_paddle_R:box_y_10000[30]                                                                                                            ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|\move_paddle_L:paddle_y[22]                                                                                                               ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|rst_timer_counter[4] ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|reconfig_counter[0]  ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|count[1]                                                              ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|count[0]                                                              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|idlecount[0]                                                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|\move_paddle_R:box_y[7]                                                                                                                   ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PE2_gtbuckner42|\move_paddle_L:paddle_y[3]                                                                                                                ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |PE2_gtbuckner42|vga_controller:U2|v_count                                                                                                                 ;
 ; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |PE2_gtbuckner42|paddle_y                                                                                                                                  ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[4]                                                                          ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |PE2_gtbuckner42|dual_boot:dualboot|altera_dual_boot:dual_boot|alt_dual_boot_avmm:alt_dual_boot_avmm_comp|alt_dual_boot:alt_dual_boot|current_state        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|Selector1                                                             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|Selector3                                                             ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|Selector5                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -1901,6 +1975,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 15             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_0do ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                                                     ;
 +-------------------------------+------------------------------------------------------------------+
@@ -2076,9 +2173,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; left_paddle_x[5]       ; Input ; Info     ; Stuck at VCC ;
 ; left_paddle_x[4]       ; Input ; Info     ; Stuck at GND ;
 ; left_paddle_x[3]       ; Input ; Info     ; Stuck at VCC ;
-; right_paddle_y[7..4]   ; Input ; Info     ; Stuck at VCC ;
-; right_paddle_y[31..8]  ; Input ; Info     ; Stuck at GND ;
-; right_paddle_y[3..0]   ; Input ; Info     ; Stuck at GND ;
 ; right_paddle_x[4..3]   ; Input ; Info     ; Stuck at VCC ;
 ; right_paddle_x[31..10] ; Input ; Info     ; Stuck at GND ;
 ; right_paddle_x[8..7]   ; Input ; Info     ; Stuck at GND ;
@@ -2216,7 +2310,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port           ; Type   ; Severity ; Details                                                                             ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 ; datax_topixelx ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; datay_topixely ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -2226,32 +2319,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 142                         ;
-; cycloneiii_ff         ; 543                         ;
-;     CLR               ; 120                         ;
+; cycloneiii_ff         ; 635                         ;
+;     CLR               ; 182                         ;
 ;     CLR SLD           ; 2                           ;
 ;     ENA               ; 239                         ;
 ;     ENA CLR           ; 24                          ;
 ;     ENA SLD           ; 62                          ;
-;     plain             ; 96                          ;
+;     plain             ; 126                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 4911                        ;
-;     arith             ; 1633                        ;
-;         1 data inputs ; 24                          ;
-;         2 data inputs ; 530                         ;
-;         3 data inputs ; 1079                        ;
-;     normal            ; 3278                        ;
-;         0 data inputs ; 78                          ;
-;         1 data inputs ; 71                          ;
-;         2 data inputs ; 1146                        ;
-;         3 data inputs ; 242                         ;
-;         4 data inputs ; 1741                        ;
+; cycloneiii_lcell_comb ; 6117                        ;
+;     arith             ; 2071                        ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 691                         ;
+;         3 data inputs ; 1355                        ;
+;     normal            ; 4046                        ;
+;         0 data inputs ; 102                         ;
+;         1 data inputs ; 78                          ;
+;         2 data inputs ; 1485                        ;
+;         3 data inputs ; 315                         ;
+;         4 data inputs ; 2066                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
 ; cycloneiii_mac_out    ; 4                           ;
 ; cycloneiii_pll        ; 1                           ;
 ; fiftyfivenm_rublock   ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 142.60                      ;
-; Average LUT depth     ; 82.14                       ;
+; Max LUT depth         ; 140.60                      ;
+; Average LUT depth     ; 79.78                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2260,7 +2353,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -2270,7 +2363,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Apr 10 14:50:48 2024
+    Info: Processing started: Wed Apr 10 15:24:50 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pong2 -c PE2_gtbuckner42
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -2377,7 +2470,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file pe2_gtb
     Info (12023): Found entity 1: PE2_gtbuckner42 File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 18
 Info (12127): Elaborating entity "PE2_gtbuckner42" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at PE2_gtbuckner42.vhd(199): object "datax_toPixelx" assigned a value but never read File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 199
-Warning (10036): Verilog HDL or VHDL warning at PE2_gtbuckner42.vhd(200): object "datay_toPixely" assigned a value but never read File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 200
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(203): used explicit default value for signal "upper_box" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 203
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(204): used explicit default value for signal "upper_box_h" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 204
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(205): used explicit default value for signal "lower_box_h" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 205
@@ -2385,7 +2477,6 @@ Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(206): us
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(207): used explicit default value for signal "Middle_box_w" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 207
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(208): used explicit default value for signal "Middle_box" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 208
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(212): used explicit default value for signal "left_paddle_x" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 212
-Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(213): used explicit default value for signal "right_paddle_y" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 213
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(214): used explicit default value for signal "right_paddle_x" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 214
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(215): used explicit default value for signal "paddle_width" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 215
 Warning (10540): VHDL Signal Declaration warning at PE2_gtbuckner42.vhd(216): used explicit default value for signal "paddle_height" because signal was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 216
@@ -2409,12 +2500,15 @@ Warning (10036): Verilog HDL or VHDL warning at PE2_gtbuckner42.vhd(345): object
 Warning (10542): VHDL Variable Declaration warning at PE2_gtbuckner42.vhd(349): used initial value expression for variable "x_speed_default" because variable was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 349
 Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(352): signal "Current_State" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 352
 Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(414): signal "Current_State" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 414
-Warning (10542): VHDL Variable Declaration warning at PE2_gtbuckner42.vhd(423): used initial value expression for variable "move_amt" because variable was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 423
-Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(479): signal "Rotary_DT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 479
-Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(483): signal "Rst_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 483
-Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(490): signal "Rst_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 490
+Warning (10542): VHDL Variable Declaration warning at PE2_gtbuckner42.vhd(424): used initial value expression for variable "move_amt" because variable was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 424
+Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(480): signal "Rotary_DT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 480
+Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(484): signal "Rst_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 484
+Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(491): signal "Rst_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 491
 Warning (10631): VHDL Process Statement warning at PE2_gtbuckner42.vhd(420): inferring latch(es) for signal or variable "player_L_score", which holds its previous value in one or more paths through the process File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 420
 Warning (10631): VHDL Process Statement warning at PE2_gtbuckner42.vhd(420): inferring latch(es) for signal or variable "player_R_score", which holds its previous value in one or more paths through the process File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 420
+Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(509): signal "right_paddle_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 509
+Warning (10542): VHDL Variable Declaration warning at PE2_gtbuckner42.vhd(511): used initial value expression for variable "scalary" because variable was never assigned a value File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 511
+Warning (10492): VHDL Process Statement warning at PE2_gtbuckner42.vhd(546): signal "Rst_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 546
 Info (10041): Inferred latch for "player_R_score[0]" at PE2_gtbuckner42.vhd(420) File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 420
 Info (10041): Inferred latch for "player_R_score[1]" at PE2_gtbuckner42.vhd(420) File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 420
 Info (10041): Inferred latch for "player_R_score[2]" at PE2_gtbuckner42.vhd(420) File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 420
@@ -2803,7 +2897,7 @@ Warning (14026): LATCH primitive "Rst_game" is permanently enabled File: C:/User
 Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (44) in the Memory Initialization File "C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/db/PE2_gtbuckner42.ram0_gsensor_889e66e.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi_program" is uninferred because MIF is not supported for the selected family File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 84
-Info (278001): Inferred 9 megafunctions from design logic
+Info (278001): Inferred 10 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "hw_image_generator:U3|Mod0" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/hw_image_generator.vhd Line: 331
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "hw_image_generator:U3|Mod1" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/hw_image_generator.vhd Line: 358
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "hw_image_generator:U3|Mod2" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/hw_image_generator.vhd Line: 374
@@ -2813,6 +2907,7 @@ Info (278001): Inferred 9 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 400
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 376
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 376
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 520
 Info (12130): Elaborated megafunction instantiation "hw_image_generator:U3|lpm_divide:Mod0" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/hw_image_generator.vhd Line: 331
 Info (12133): Instantiated megafunction "hw_image_generator:U3|lpm_divide:Mod0" with the following parameter: File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/hw_image_generator.vhd Line: 331
     Info (12134): Parameter "LPM_WIDTHN" = "32"
@@ -2907,13 +3002,67 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_fnh File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/db/sign_div_unsign_fnh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8le.tdf
     Info (12023): Found entity 1: alt_u_div_8le File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/db/alt_u_div_8le.tdf Line: 27
-Info (13014): Ignored 160 buffer(s)
-    Info (13016): Ignored 88 CARRY_SUM buffer(s)
+Info (13014): Ignored 191 buffer(s)
+    Info (13016): Ignored 119 CARRY_SUM buffer(s)
     Info (13019): Ignored 72 SOFT buffer(s)
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 41
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 42
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[30]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[29]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[28]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[27]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[26]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[25]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[24]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[23]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[22]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[21]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[20]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[19]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[18]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+    Info (13026): Duplicate LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[17]" merged with LATCH primitive "hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31]"
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][6] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][4] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][5] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][4] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+Warning (13012): Latch hw6p3Modified:accelerometer|\set_datay_toPixely:integer_value[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][4] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[2][4] File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/Components/gsensor.sv Line: 193
 Info (13000): Registers with preset signals will power-up high File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/vga_controller.vhd Line: 43
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13009): TRI or OPNDRN buffers permanently enabled
@@ -2970,6 +3119,14 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register \move_paddle_L:paddle_y[5] will power up to Low
     Critical Warning (18010): Register \move_paddle_L:paddle_y[3] will power up to High
     Critical Warning (18010): Register \move_paddle_L:paddle_y[2] will power up to High
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[23] will power up to High
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[20] will power up to Low
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[19] will power up to Low
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[15] will power up to Low
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[14] will power up to High
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[9] will power up to High
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[8] will power up to High
+    Critical Warning (18010): Register \move_paddle_R:box_y_10000[7] will power up to Low
 Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "Add1~58" File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 383
@@ -2979,18 +3136,18 @@ Info (17016): Found the following redundant logic cells in design
 Info (144001): Generated suppressed messages file C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/output_files/PE2_gtbuckner42.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5312 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6545 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 134 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 5160 logic cells
+    Info (21061): Implemented 6393 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 8 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 184 warnings
-    Info: Peak virtual memory: 4983 megabytes
-    Info: Processing ended: Wed Apr 10 14:51:16 2024
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 232 warnings
+    Info: Peak virtual memory: 4989 megabytes
+    Info: Processing ended: Wed Apr 10 15:25:05 2024
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +------------------------------------------+
