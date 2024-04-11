@@ -384,11 +384,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "key1",
+					"name" : "pixel_clk_m",
 					"strict" : false
 				},
 				{
-					"name" : "pixel_clk_m",
+					"name" : "key1",
 					"strict" : false
 				},
 				{
