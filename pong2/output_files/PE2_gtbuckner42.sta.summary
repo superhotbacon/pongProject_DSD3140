@@ -3,19 +3,27 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'vga_controller:U2|disp_ena'
-Slack : -97.273
-TNS   : -12923.950
+Slack : -101.549
+TNS   : -18280.060
 
 Type  : Slow 1200mV 85C Model Setup 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -8.259
-TNS   : -139.349
+Slack : -8.362
+TNS   : -140.614
+
+Type  : Slow 1200mV 85C Model Setup 'Rst_game'
+Slack : -8.180
+TNS   : -82.675
+
+Type  : Slow 1200mV 85C Model Setup 'Current_State.update_score_rst_ball'
+Slack : -4.236
+TNS   : -4.236
 
 Type  : Slow 1200mV 85C Model Setup 'pixel_clk_m'
-Slack : 12.342
-TNS   : 0.000
+Slack : -1.201
+TNS   : -2.198
 
 Type  : Slow 1200mV 85C Model Setup 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 31.629
+Slack : 30.099
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'pixel_clk_m'
@@ -27,75 +35,99 @@ Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.420
+Slack : 0.416
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 1.597
+Slack : 1.606
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Rst_game'
+Slack : 2.970
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Current_State.update_score_rst_ball'
+Slack : 3.817
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -6.802
-TNS   : -19.825
+Slack : -6.352
+TNS   : -19.018
 
 Type  : Slow 1200mV 85C Model Recovery 'vga_controller:U2|disp_ena'
-Slack : -2.010
-TNS   : -168.651
+Slack : -1.662
+TNS   : -1.662
 
 Type  : Slow 1200mV 85C Model Recovery 'pixel_clk_m'
-Slack : 19.028
+Slack : 18.045
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 36.495
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'pixel_clk_m'
-Slack : 0.372
+Slack : 35.434
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'vga_controller:U2|disp_ena'
-Slack : 1.039
-TNS   : 0.000
+Slack : -1.052
+TNS   : -288.409
 
-Type  : Slow 1200mV 85C Model Removal 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.396
+Type  : Slow 1200mV 85C Model Removal 'pixel_clk_m'
+Slack : 1.174
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 1.563
+Slack : 1.560
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'U1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.977
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga_controller:U2|disp_ena'
-Slack : -3.166
-TNS   : -569.840
+Slack : -1.403
+TNS   : -564.006
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 0.391
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Current_State.update_score_rst_ball'
+Slack : 0.473
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Rst_game'
+Slack : 0.473
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pixel_clk_m'
-Slack : 9.672
+Slack : 9.645
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.574
+Slack : 19.583
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'vga_controller:U2|disp_ena'
-Slack : -88.480
-TNS   : -11768.621
+Slack : -92.764
+TNS   : -16682.496
+
+Type  : Slow 1200mV 0C Model Setup 'Rst_game'
+Slack : -7.912
+TNS   : -80.773
 
 Type  : Slow 1200mV 0C Model Setup 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -7.727
-TNS   : -131.437
+Slack : -7.865
+TNS   : -132.906
+
+Type  : Slow 1200mV 0C Model Setup 'Current_State.update_score_rst_ball'
+Slack : -3.805
+TNS   : -3.805
 
 Type  : Slow 1200mV 0C Model Setup 'pixel_clk_m'
-Slack : 13.075
-TNS   : 0.000
+Slack : -1.023
+TNS   : -1.867
 
 Type  : Slow 1200mV 0C Model Setup 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 32.260
+Slack : 30.852
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'pixel_clk_m'
@@ -103,79 +135,103 @@ Slack : 0.306
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'vga_controller:U2|disp_ena'
-Slack : 0.306
+Slack : 0.307
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.340
+Slack : 0.336
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 1.500
+Slack : 1.499
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Rst_game'
+Slack : 3.027
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Current_State.update_score_rst_ball'
+Slack : 3.505
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -6.428
-TNS   : -18.708
+Slack : -5.967
+TNS   : -17.881
 
 Type  : Slow 1200mV 0C Model Recovery 'vga_controller:U2|disp_ena'
-Slack : -1.789
-TNS   : -147.456
+Slack : -1.461
+TNS   : -1.461
 
 Type  : Slow 1200mV 0C Model Recovery 'pixel_clk_m'
-Slack : 19.103
+Slack : 18.151
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 36.648
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'pixel_clk_m'
-Slack : 0.304
+Slack : 35.784
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'vga_controller:U2|disp_ena'
-Slack : 0.955
-TNS   : 0.000
+Slack : -0.987
+TNS   : -270.745
 
-Type  : Slow 1200mV 0C Model Removal 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.258
+Type  : Slow 1200mV 0C Model Removal 'pixel_clk_m'
+Slack : 1.036
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 1.559
+Slack : 1.486
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'U1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.794
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga_controller:U2|disp_ena'
-Slack : -3.166
-TNS   : -569.840
+Slack : -1.403
+TNS   : -564.006
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 0.303
+Slack : 0.424
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Rst_game'
+Slack : 0.428
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Current_State.update_score_rst_ball'
+Slack : 0.475
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pixel_clk_m'
-Slack : 9.707
+Slack : 9.714
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.557
+Slack : 19.564
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'vga_controller:U2|disp_ena'
-Slack : -40.264
-TNS   : -5307.260
+Slack : -42.296
+TNS   : -7514.347
+
+Type  : Fast 1200mV 0C Model Setup 'Rst_game'
+Slack : -3.439
+TNS   : -35.655
 
 Type  : Fast 1200mV 0C Model Setup 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -3.258
-TNS   : -51.958
+Slack : -3.138
+TNS   : -51.244
+
+Type  : Fast 1200mV 0C Model Setup 'Current_State.update_score_rst_ball'
+Slack : -1.450
+TNS   : -1.450
 
 Type  : Fast 1200mV 0C Model Setup 'pixel_clk_m'
-Slack : 16.755
+Slack : 0.080
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 36.364
+Slack : 35.694
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'pixel_clk_m'
@@ -187,59 +243,75 @@ Slack : 0.148
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.210
+Slack : 0.208
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 0.412
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Rst_game'
+Slack : 1.091
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Current_State.update_score_rst_ball'
+Slack : 1.818
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : -2.575
-TNS   : -7.457
+Slack : -2.339
+TNS   : -6.995
 
 Type  : Fast 1200mV 0C Model Recovery 'vga_controller:U2|disp_ena'
 Slack : -0.486
-TNS   : -36.426
+TNS   : -0.486
 
 Type  : Fast 1200mV 0C Model Recovery 'pixel_clk_m'
-Slack : 19.448
+Slack : 18.812
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 38.157
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'pixel_clk_m'
-Slack : 0.169
+Slack : 37.588
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'vga_controller:U2|disp_ena'
-Slack : 0.332
+Slack : -0.465
+TNS   : -127.094
+
+Type  : Fast 1200mV 0C Model Removal 'pixel_clk_m'
+Slack : 0.518
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 0.529
+Slack : 0.587
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.621
+Slack : 0.922
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga_controller:U2|disp_ena'
 Slack : -1.000
-TNS   : -376.000
+TNS   : -402.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|memory[3][0]'
-Slack : 0.299
+Slack : 0.333
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Rst_game'
+Slack : 0.388
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Current_State.update_score_rst_ball'
+Slack : 0.494
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pixel_clk_m'
-Slack : 9.363
+Slack : 9.320
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'U1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.641
+Slack : 19.640
 TNS   : 0.000
 
 ------------------------------------------------------------
