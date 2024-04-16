@@ -303,10 +303,6 @@ BEGIN
 		------>THE ORDER IN WHICH THE IF STATEMENTS APPER DETERMINE THE LAYERING OF THE DISPLAY. 
 		------>THE MORE "LATTER" THE IF STATEMENT, THE MORE PRIORITY IT HAS OF "PREVIOUS" STATEMETNS
 		
-		--this if statement sets background mask
-		if (row >= ball1_row and row < ball1_row + ball_size) and (column >= ball1_col and column < ball1_col + ball_size) then
-			RGB:= "101100001111";
-		end if;
 		
 		
 		
@@ -376,6 +372,11 @@ BEGIN
 			end if;
 		end if;
 		
+		
+		--this if statement sets ball
+		if (row >= ball1_row and row < ball1_row + ball_size) and (column >= ball1_col and column < ball1_col + ball_size) then
+			RGB:= "101100001111";
+		end if;
 	
 		
 		red(3 downto 0) <= RGB(11 downto 8);

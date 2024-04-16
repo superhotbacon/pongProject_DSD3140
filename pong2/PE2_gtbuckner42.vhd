@@ -224,8 +224,8 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal left_score0		:integer:= 320 - 20 - (32 * 1);--lsb left score
 	signal right_score0		:integer:= 320 + 20 + (32 * 1) + score_spacing - Middle_box_w - 5; --minus 5 lines it up better
 	signal right_score1		:integer:= 320 + 20 - Middle_box_W - 5;
-	signal player_L_score	:integer:=14;
-	signal player_R_score	:integer:=93;
+	signal player_L_score	:integer:=0;
+	signal player_R_score	:integer:=0;
 	signal player_L_scored	:std_logic:='0';
 	signal player_R_scored	:std_logic:='0';
 	
@@ -237,7 +237,9 @@ architecture vga_structural of PE2_gtbuckner42  is
 	
 	--need seperate signals for resetting because You cannot have constant drivers
 	signal Rst_game			:std_logic;
-	
+	signal rst_ball			:std_logic; --GB CHANGED 4/15/24
+	signal rst_counter		:std_logic; --GB CHANGED 4/15/24
+	signal rst_Player_scored:std_logic; --GB CHANGED 4/15/24 tells the 'moveball' process to reset Player_L_scored and Player_R_scored
 	--signals for randomness
 	signal seed: std_Logic_vector(20 downto 0):= "100101001110010101111"; --i randomly typed numbers
 	signal seed2:std_logic_vector(20 downto 0):= "010110100110111110001"; --i randomlly typed numbers again
@@ -246,6 +248,8 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal seed_set: std_logic;
 	signal seed_set2:std_logic;
 	
+	
+	
 	--SIGNAL FOR ACTIVE LOW RESET
 	signal reset_n_m			:std_logic;
 	
@@ -253,8 +257,6 @@ architecture vga_structural of PE2_gtbuckner42  is
 		signal Current_State : State_Type;
 		signal Next_State : State_Type;
 	
-	
-	--THIS IS A TEST TO PUSh
 begin
 	max10_clk <= pixel_clk_m;
 	reset_n_m <= not reset_n_m_sw0;
@@ -301,23 +303,24 @@ begin
 	end process;
 	
 	--FFOR REF:type State_Type is (reset_game, volly, update_score_rst_ball)
-	NEXT_STATE_LOGIC: process (key1, player_R_scored , player_L_scored, Current_State) begin
+	NEXT_STATE_LOGIC: process (key1, player_R_scored , player_L_scored, Current_State,key0) begin
 		case Current_State is
 			when reset_game => if Key1='0' then Next_State <= volly;
 				else Next_State <= reset_game;
 				end if;
-		when volly => if (player_R_scored or player_L_scored) = '1' then Next_State <= update_score_rst_ball;
+		when volly => if (player_R_scored = '1' or player_L_scored = '1') then Next_State <= update_score_rst_ball;
 				else Next_State <= volly;
 				end if;
-		when update_score_rst_ball => if (player_R_scored or player_L_scored) = '1' then Next_State <= update_score_rst_ball;
-				else Next_State <= volly; --when score is updated, a process will make ball_score = '0'
+		when update_score_rst_ball => if key1 = '1' then Next_State <= update_score_rst_ball;
+				else Next_State <= volly; --waits until key1 is pressed to play next section
 				end if;
 		when others => Next_State <= reset_game;
 		end case;
 	end process;
 	
 	--
-	--determine what is needed to happen to make the stuff happen
+	
+	--GB CHANGED 4/15/24
 	OUTPUT_LOGIC:process (Current_State) begin
 		case Current_State is
 			when reset_game => 
@@ -325,17 +328,18 @@ begin
 				Rst_game <= '1';
 			when volly =>
 				Rst_game <= '0';
+				Rst_ball <= '0';
+			when update_score_rst_ball => 	
+				rst_game <= '0';
+				--rst_ball <= '1';
 			when others => 
 		end case;
 	end process;
-	
-	
-	
 	---datax_toPixelx: out integer;
 	---datay_toPixely: out integer;
 	--Need to change this to move only the paddle-4/9/2024
-	moveball:process(dispEn)
-
+	moveball_and_set_Scoreboard_once_scored:process(dispEn)
+	  variable enable:std_logic:='1';
 	  variable ball_x:integer:=ball1_col;
 	  variable ball_y:integer:=ball1_row;
 	  variable scalarx:integer:= 4;
@@ -348,12 +352,9 @@ begin
 	  variable ball_x_10000:integer:= 3200000*scalarx; --in form of (pixels * 10000)
 	  variable ball_y_10000:integer:= 2400000*scalary;	  
 	  
-	 begin
-	 
-	 
-		
+	 begin		
 		if(rising_edge(dispEN) and current_state = volly) then --calculate stuff while frame is being printed 
-		
+			enable:= '1';
 			--if collision then set the direction
 			--if set the directin then check for angle
 			--want the direction to be 60deg or less
@@ -370,8 +371,6 @@ begin
 			if(Psuedo_Random_Num2(4) = '1') then --I want to set the variable negative if msb is 1 
 				RandNum2:= -RandNum2;
 			end if;
-	
-				
 				--increments the x_y variable by increment amount
 				ball_x_10000:= x_inc + ball_x_10000;
 				ball_y_10000:= y_inc + ball_y_10000;
@@ -421,7 +420,12 @@ begin
 				
 		 end if;
 		 
-		 			if(rst_game = '1') then 
+		 
+		 			if(current_state = reset_game )then
+							player_L_score <= 0;
+							player_R_score <= 0;
+							player_R_scored <='0';
+							player_L_scored <='0';
 						--seed the random numbers
 						RandNum:= to_integer(unsigned(Psuedo_Random_Num(3 downto 0))); --sets random number each frame
 						RandNum2:= to_integer(unsigned(Psuedo_Random_Num2(3 downto 0))); --sets random number each frame
@@ -431,19 +435,47 @@ begin
 						if(Psuedo_Random_Num2(0) = '1') then --I want to set the variable negative if msb is 1 
 							RandNum2:= -1 * RandNum2;
 						end if;
-					ball_x:= 320;
-					ball_y:= 240;
-					ball_x_10000:= 320*10000*scalarX;
-					ball_y_10000:= 240*10000*scalary;
-					x_inc := x_speed_default;
-					y_inc := ((RandNum2 * 10) rem (173*x_speed_default/100)); --considering y = randNum2*10000. this makes y a random num (use rem instead of mod)
-					--that makes the angle less than 60 deg			
-					player_R_scored <='0';
-					player_L_scored <='0';
+						ball_x:= 320;
+						ball_y:= 240;
+						ball_x_10000:= 320*10000*scalarX;
+						ball_y_10000:= 240*10000*scalary;
+						x_inc := x_speed_default;
+						y_inc := ((RandNum2 * 10) rem (173*x_speed_default/100)); --considering y = randNum2*10000. this makes y a random num (use rem instead of mod)
+						--that makes the angle less than 60 deg
+
+					end if;
 					
-				end if;
+					
+		 			if(current_state = update_score_rst_ball and enable = '1') then
+							if Player_L_scored = '1' then
+							player_L_score <= player_L_score + 1;
+							elsif player_R_scored = '1' then
+							player_R_score <= Player_R_score + 1;
+							end if;
+						enable:='0';
+						--seed the random numbers
+						RandNum:= to_integer(unsigned(Psuedo_Random_Num(3 downto 0))); --sets random number each frame
+						RandNum2:= to_integer(unsigned(Psuedo_Random_Num2(3 downto 0))); --sets random number each frame
+						if(Psuedo_Random_Num(0) = '1') then --I want to set the variable negative if msb is 1 
+							RandNum:= -1 * RandNum;
+						end if;
+						if(Psuedo_Random_Num2(0) = '1') then --I want to set the variable negative if msb is 1 
+							RandNum2:= -1 * RandNum2;
+						end if;
+						ball_x:= 320;
+						ball_y:= 240;
+						ball_x_10000:= 320*10000*scalarX;
+						ball_y_10000:= 240*10000*scalary;
+						x_inc := x_speed_default;
+						y_inc := ((RandNum2 * 10) rem (173*x_speed_default/100)); --considering y = randNum2*10000. this makes y a random num (use rem instead of mod)
+						--that makes the angle less than 60 deg
+							player_R_scored <='0';
+							player_L_scored <='0';
+					end if;					
+					
+	
 		 
-		if(falling_edge(dispEN) ) then ---move ball at end of frame(TEST)
+		if(falling_edge(dispEN)) then ---move ball at end of frame(TEST)
 			ball1_col <= ball_x;
 			ball1_row <= ball_y;
 		end if;
@@ -513,18 +545,11 @@ begin
 				enable := '1';
 		 end if;
 		
+		
+		--GB CHANGED 4/15/24
 		if(Rst_game = '1') then
 			Paddle_y := 220;
-			--TEST
-			Player_L_Score <= 0;
-			Player_R_score <= 0;
 		end if;
-		--TEST
-		if(Rst_game = '0') then
-			player_L_SCore <= 39;
-			Player_R_score <= 56;
-		end if;
-		
 		
 		if(falling_edge(dispEN)) then ---move box at end of frame
 			left_paddle_y <= paddle_y;
