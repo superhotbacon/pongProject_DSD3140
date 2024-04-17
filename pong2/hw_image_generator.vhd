@@ -329,14 +329,7 @@ BEGIN
 					end if;
 		end if;
 		
-		--MAKING THE PADDLES
-		if(column >= right_paddle_x and column < right_paddle_x + paddle_width) and (row >= right_paddle_y and row < right_paddle_y + paddle_height) then
-			RGB:= (others=>'1');
-		end if;
-		
-		if(column >= left_paddle_x and column < left_paddle_x + paddle_width) and (row >= left_paddle_y and row < left_paddle_y + paddle_height) then
-			RGB:= (others=>'1');
-		end if;
+
 		
 		--now for the color blocks
 		--for the leftmost score box
@@ -373,11 +366,22 @@ BEGIN
 		end if;
 		
 		
-		--this if statement sets ball
+
+		
+		
+		--MAKING THE PADDLES
+		if(column >= right_paddle_x and column < right_paddle_x + paddle_width) and (row >= right_paddle_y and row < right_paddle_y + paddle_height) then
+			RGB:= (others=>'1');
+		end if;
+		
+		if(column >= left_paddle_x and column < left_paddle_x + paddle_width) and (row >= left_paddle_y and row < left_paddle_y + paddle_height) then
+			RGB:= (others=>'1');
+		end if;	
+	
+			--this if statement sets ball
 		if (row >= ball1_row and row < ball1_row + ball_size) and (column >= ball1_col and column < ball1_col + ball_size) then
 			RGB:= "101100001111";
 		end if;
-	
 		
 		red(3 downto 0) <= RGB(11 downto 8);
 		green(3 downto 0) <= RGB(7 downto 4);

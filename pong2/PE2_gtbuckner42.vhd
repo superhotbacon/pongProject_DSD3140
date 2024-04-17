@@ -59,6 +59,8 @@ entity PE2_gtbuckner42 is
 		
 		Key0			: in Std_logic;
 		key1			: in std_logic;
+		buzz_sig		: buffer std_logic:='1';
+		
 		Rotary_clk:in std_logic;
 		Rotary_DT:in std_logic
 	);
@@ -248,7 +250,7 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal seed_set: std_logic;
 	signal seed_set2:std_logic;
 	
-	
+
 	
 	--SIGNAL FOR ACTIVE LOW RESET
 	signal reset_n_m			:std_logic;
@@ -262,7 +264,7 @@ begin
 	reset_n_m <= not reset_n_m_sw0;
 	--accelerometer is below
 	accelerometer: hw6p3Modified port map(max10_clk => max10_clk, GSENSOR_CS_N => GSENSOR_CS_N, GSENSOR_SCLK => GSENSOR_SCLK, GSENSOR_SDI => GSENSOR_SDI, 
-						GSENSOR_SDO => GSENSOR_SDO, dFix => dFix, ledFix => ledFix, hex5 =>hex5,hex4=>hex4,hex3=>hex3,hex2=>hex2,hex1=>hex1,hex0=>hex0,
+						GSENSOR_SDO => GSENSOR_SDO, dFix => dFix, ledFix => ledFix, hex5 =>open,hex4=>open,hex3=>open,hex2=>open,hex1=>open,hex0=>open,
 						data_x=>data_x,data_y=>data_y,data_z=>data_z, datax_toPixelx => datax_toPixelx,
 						datay_toPixely => datay_toPixely);
 						
@@ -311,8 +313,14 @@ begin
 		when volly => if (player_R_scored = '1' or player_L_scored = '1') then Next_State <= update_score_rst_ball;
 				else Next_State <= volly;
 				end if;
-		when update_score_rst_ball => if key1 = '1' then Next_State <= update_score_rst_ball;
-				else Next_State <= volly; --waits until key1 is pressed to play next section
+		when update_score_rst_ball => 
+				if player_L_score > 10 or Player_R_score > 10 then  
+					if key1 = '0' then Next_state <= reset_game;
+					else					 Next_state <= update_score_rst_ball;
+					end if;
+				elsif key1 = '1' then Next_State <= update_score_rst_ball;
+				elsif key1 = '0' then Next_State <= volly; --waits until key1 is pressed to play next section
+				
 				end if;
 		when others => Next_State <= reset_game;
 		end case;
@@ -324,7 +332,6 @@ begin
 	OUTPUT_LOGIC:process (Current_State) begin
 		case Current_State is
 			when reset_game => 
-				--reset all the things
 				Rst_game <= '1';
 			when volly =>
 				Rst_game <= '0';
@@ -338,6 +345,69 @@ begin
 	---datax_toPixelx: out integer;
 	---datay_toPixely: out integer;
 	--Need to change this to move only the paddle-4/9/2024
+	
+	
+	
+	
+	Handle_buzzer:process(Current_state, dispEn,ball1_row,ball1_col)
+	variable counter:integer:=0;
+	variable counter2:integer:=0;
+	variable frameCounter:integer:=0;
+	variable frameCounter2:integer:=0;
+	variable enable:integer:=1;
+	variable enable2:integer:=1;
+	variable collided:integer:=0;
+	begin
+		if(rising_edge(dispEn)) then
+			frameCounter:= frameCounter + 1;
+			counter:= counter + 1;
+			counter2:= counter2 + 1;
+	
+		if current_state = update_score_rst_ball then
+			if enable = 1 then
+				counter:=0;
+				frameCounter:= 0;
+				enable:= 0;
+			else 
+				if player_L_score > 10 or player_R_score > 10 Or player_L_scored = '1' or player_R_scored = '1' then
+					if(frameCounter < 300) then
+						if(counter mod 4 = 1) then
+							buzz_sig <= not buzz_sig;
+						end if;
+					else
+						enable:= 1;
+					end if;
+				end if;
+			end if;
+			
+		end if;
+		
+		
+		if (ball1_col + ball_size > right_paddle_x -2 and ball1_col < right_paddle_x + paddle_width) and (ball1_row + ball_size  >= right_paddle_y and ball1_row < right_paddle_y + paddle_height) 
+		then--right paddle (the +- 2 addes a small buffer to make sure the collision gets detected)
+			collided:= 1;
+			counter2:= 0;		
+		elsif (ball1_col <= left_paddle_x + paddle_width + 2 and ball1_col > left_paddle_x) and (ball1_row + ball_size >= left_paddle_y and ball1_row < left_paddle_y + paddle_height)
+		then--left paddle
+			collided:= 1;
+			counter2:= 0;
+		end if;		
+		
+		
+		
+		
+		if collided = 1  and counter2 < 500 then
+			--counter2:= counter2 + 1;
+			buzz_sig <= not buzz_sig;
+		else
+			collided:= 0;
+		end if;
+		
+		
+	end if;
+	
+	end process;
+	
 	moveball_and_set_Scoreboard_once_scored:process(dispEn)
 	  variable enable:std_logic:='1';
 	  variable ball_x:integer:=ball1_col;
@@ -404,14 +474,14 @@ begin
 				--for right paddle
 				--if ball collides with right paddle
 				--paddle_x is actually built from the right pixle
-				if((ball_X > right_paddle_x - paddle_width) and (ball_y + ball_size >= right_paddle_y and ball_y < right_paddle_y + paddle_height)) then
+				if((ball_X + ball_size > right_paddle_x and ball_x < right_paddle_x + paddle_width) and (ball_y + ball_size >= right_paddle_y and ball_y < right_paddle_y + paddle_height)) then
 					--ball_x:= -ball_x;
 					--ball_x_10000:= ball_x*10000*scalarx;
 					x_inc := -x_inc;
 					
 				end if;
 				--now for left paddle
-				if((ball_x < left_paddle_x) and (ball_y >= left_paddle_y and ball_y + ball_size < left_paddle_y + paddle_height)) then
+				if((ball_x < left_paddle_x + paddle_width and ball_x > left_paddle_x) and (ball_y + ball_size >= left_paddle_y and ball_y < left_paddle_y + paddle_height)) then
 					--ball_x:= -ball_x;
 					--ball_x_10000:= ball_x*10000*scalarx;
 					x_inc:= -x_inc;
