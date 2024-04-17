@@ -1,5 +1,5 @@
 Flow report for PE2_gtbuckner42
-Tue Apr 16 23:48:50 2024
+Wed Apr 17 13:58:13 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,21 +41,21 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Apr 16 23:48:45 2024       ;
+; Flow Status                        ; Successful - Wed Apr 17 13:58:04 2024       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; PE2_gtbuckner42                             ;
 ; Top-level Entity Name              ; PE2_gtbuckner42                             ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 11,975 / 49,760 ( 24 % )                    ;
-;     Total combinational functions  ; 11,845 / 49,760 ( 24 % )                    ;
-;     Dedicated logic registers      ; 754 / 49,760 ( 2 % )                        ;
-; Total registers                    ; 754                                         ;
+; Total logic elements               ; 13,559 / 49,760 ( 27 % )                    ;
+;     Total combinational functions  ; 13,461 / 49,760 ( 27 % )                    ;
+;     Dedicated logic registers      ; 755 / 49,760 ( 2 % )                        ;
+; Total registers                    ; 755                                         ;
 ; Total pins                         ; 143 / 360 ( 40 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
-; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Embedded Multiplier 9-bit elements ; 12 / 288 ( 4 % )                            ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
 ; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/16/2024 23:47:35 ;
+; Start date & time ; 04/17/2024 13:56:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PE2_gtbuckner42     ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-------------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                       ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+-------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 233730242736449.171332925527188                             ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 233730242736449.171338017418328                             ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                          ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                           ; --            ; --          ; --         ;
 ; MISC_FILE                           ; dual_boot/synthesis/../dual_boot.cmp                        ; --            ; --          ; --         ;
@@ -108,11 +108,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4990 MB             ; 00:00:09                           ;
-; Fitter               ; 00:00:45     ; 1.7                     ; 6405 MB             ; 00:00:35                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4777 MB             ; 00:00:00                           ;
-; Timing Analyzer      ; 00:00:05     ; 3.8                     ; 5011 MB             ; 00:00:09                           ;
-; Total                ; 00:01:12     ; --                      ; --                  ; 00:00:53                           ;
+; Analysis & Synthesis ; 00:00:32     ; 1.0                     ; 5011 MB             ; 00:00:19                           ;
+; Fitter               ; 00:01:10     ; 1.7                     ; 6417 MB             ; 00:00:54                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4770 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:08     ; 4.1                     ; 5023 MB             ; 00:00:20                           ;
+; Total                ; 00:01:52     ; --                      ; --                  ; 00:01:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

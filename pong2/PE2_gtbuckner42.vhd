@@ -216,6 +216,9 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal right_paddle_x	:integer:= 640 - 40;
 	signal paddle_width		:integer:=5;
 	signal paddle_height		:integer:=45;
+	signal left_paddle_middle  :integer:=left_paddle_y+paddle_height/2;
+   signal right_paddle_middle :integer:=right_paddle_y+paddle_height/2;
+   signal y_factor_inv        :integer:=50; -- <BA> normalizes the y speed with which the ball bounces off of the left and right paddles
 	
 	--signals for score boxes
 	signal score_w				:integer:= 4; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
@@ -236,6 +239,8 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal ball1_col 			:integer:= 310;
 	signal ball1_row 			:integer:= 240;
 	signal ball_size			:integer:=10;
+	signal ball1_row_middle :integer:= ball1_row+ball_size/2;
+	signal ball1_col_middle :integer:= ball1_col+ball_size/2;
 	
 	--need seperate signals for resetting because You cannot have constant drivers
 	signal Rst_game			:std_logic;
@@ -460,14 +465,12 @@ begin
 		       end if;	
 				
 				--if collides with left or right border wall
-				if(ball_x < 0 or (ball_x + ball_size) > 640) then
-					if ball_x < 0 then
-						player_R_scored <= '1';
-					elsif ball_x + ball_size > 640 then
+				if(ball_x < 5 or (ball_x + ball_size) > 639) then
+					if ball_x <= 5 then
+						player_R_scored <= '1'; 
+					elsif ball_x + ball_size >= 634 then
 						player_L_scored <= '1';
 					end if;
-					--ball_x:= ball1_col;
-					--ball_x_10000:=ball1_col * 10000*scalarx;
 				end if;	
 				
 				--------COLLISIONS FOR BALLS
@@ -478,18 +481,35 @@ begin
 					--ball_x:= -ball_x;
 					--ball_x_10000:= ball_x*10000*scalarx;
 					x_inc := -x_inc;
-					
+					y_inc := -x_inc*(ball1_row_middle-right_paddle_middle)/y_factor_inv;
 				end if;
 				--now for left paddle
 				if((ball_x < left_paddle_x + paddle_width and ball_x > left_paddle_x) and (ball_y + ball_size >= left_paddle_y and ball_y < left_paddle_y + paddle_height)) then
 					--ball_x:= -ball_x;
 					--ball_x_10000:= ball_x*10000*scalarx;
 					x_inc:= -x_inc;
+					y_inc := x_inc*(ball1_row_middle-left_paddle_middle)/y_factor_inv;
 				end if;
 					
+--					--NEW LOGIC FOR ball collisions
+--					if((ball_x = right_paddle_x - paddle_width) and (ball_y + ball_size >= right_paddle_y and ball_y <= right_paddle_y + paddle_height)) then
+--                    --ball_x:= -ball_x;
+--                    --ball_x_10000:= ball_x10000scalarx;
+--                    x_inc := -x_inc;
+--                    y_inc := -x_inc*(ball1_row_middle-right_paddle_middle)/y_factor_inv;
+--                end if;
+--                --now for left paddle
+--                if((ball_x = left_paddle_x + paddle_width) and (ball_y + ball_size >= left_paddle_y and ball_y <= left_paddle_y + paddle_height)) then
+--                    --ball_x:= -ball_x;
+--                    --ball_x_10000:= ball_x10000scalarx;
+--                    x_inc:= -x_inc;
+--                    y_inc := x_inc*(ball1_row_middle-left_paddle_middle)/y_factor_inv;
+--                end if;				
+				
+				
+				
 				
 		 end if;
-		 
 		 
 		 			if(current_state = reset_game )then
 							player_L_score <= 0;
