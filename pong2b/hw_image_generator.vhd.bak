@@ -1,0 +1,152 @@
+--------------------------------------------------------------------------------
+--
+--   FileName:         hw_image_generator.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus II 64-bit Version 12.1 Build 177 SJ Full Version
+--
+--   HDL CODE IS PROVIDED "AS IS."  DIGI-KEY EXPRESSLY DISCLAIMS ANY
+--   WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
+--   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+--   PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL DIGI-KEY
+--   BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL
+--   DAMAGES, LOST PROFITS OR LOST DATA, HARM TO YOUR EQUIPMENT, COST OF
+--   PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY OR SERVICES, ANY CLAIMS
+--   BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
+--   ANY CLAIMS FOR INDEMNITY OR CONTRIBUTION, OR OTHER SIMILAR COSTS.
+--
+--   Version History
+--   Version 1.0 05/10/2013 Scott Larson
+--     Initial Public Release
+--    
+--------------------------------------------------------------------------------
+--
+-- Altered 10/13/19 - Tyler McCormick 
+-- Test pattern is now 8 equally spaced 
+-- different color vertical bars, from black (left) to white (right)
+
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use       IEEE.numeric_std.all;
+
+ENTITY hw_image_generator IS
+  GENERIC(
+    
+	col_a : INTEGER := 80;
+	col_b : INTEGER := 160;
+	col_c : INTEGER := 240;
+	col_d : INTEGER := 320;
+	col_e : INTEGER := 400;
+	col_f : INTEGER := 480;
+	col_g : INTEGER := 560;
+	col_h : INTEGER := 640
+
+	);  
+  PORT(
+    disp_ena :  IN   STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
+    row      :  IN   INTEGER;    --row pixel coordinate
+    column   :  IN   INTEGER;    --column pixel coordinate
+    red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
+    green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
+    blue     :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0'); --blue magnitude output to DAC
+	 box1_col :  in integer;
+	 box1_row :  in integer;
+	 upper_box:  in integer;
+	 lower_box:  in integer;
+	 upper_box_h: in integer;--height of box
+	 lower_box_h: in integer;
+	 Middle_box_w: in integer; --width of middle box
+	 Middle_box: in integer; --middle box spawn location x coordinate
+	 --the following is for the left and right paddle locations
+	 left_paddle_x:in integer;
+	 left_paddle_y:in integer;
+	 right_paddle_y:in integer;
+	 right_paddle_x:in integer;
+	 paddle_width:in integer;
+	 paddle_height:in integer
+	 );
+END hw_image_generator;
+
+ARCHITECTURE behavior OF hw_image_generator IS
+
+	
+
+
+BEGIN
+
+  PROCESS(disp_ena, row, column)
+  variable RGB: std_logic_vector(11 downto 0);
+  variable i: integer:= 0;
+  BEGIN
+    IF(disp_ena = '1') THEN        --display timeRGB := std_logic_vector(to_unsigned(column + (640*2), RGB'length));
+		RGB:= (others=> '0');--sets screen to black
+
+		------>THE ORDER IN WHICH THE IF STATEMENTS APPER DETERMINE THE LAYERING OF THE DISPLAY. 
+		------>THE MORE "LATTER" THE IF STATEMENT, THE MORE PRIORITY IT HAS OF "PREVIOUS" STATEMETNS
+		
+		--this if statement sets background mask
+		if (row >= box1_row and row < box1_row + 32) and (column >= box1_col and column < box1_col + 32) then
+		if row < 70 then
+			RGB := std_logic_vector(to_unsigned(column + (640*0), RGB'length));
+		elsif row < 140 then
+			RGB := std_logic_vector(to_unsigned(column + (640*1), RGB'length));
+		elsif row < 210 then
+			RGB := std_logic_vector(to_unsigned(column + (640*2), RGB'length));
+		elsif row < 280 then
+			RGB := std_logic_vector(to_unsigned(column +(640*3), RGB'length));
+		elsif row < 350 then
+			RGB := std_logic_vector(to_unsigned(column +(640*4), RGB'length));
+		elsif row < 420 then
+			RGB := std_logic_vector(to_unsigned(column +(640*5), RGB'length));
+		elsif row < 480 then
+			RGB := std_logic_vector(to_unsigned(column +(640*6), RGB'length));	
+		end if;
+		end if;
+		
+		
+		
+		
+		--making static elements
+		if(row >= upper_box and row < upper_box + upper_box_h) and (column > 20 and column < (640 - 20)) then
+			RGB:= (others => '1');
+		end if;
+		
+		if(row >= lower_box and row < lower_box + lower_box_h) and (column > 20 and column < (640 - 20)) then
+			RGB:= (others => '1');
+		end if;
+		
+		--printing perforated line
+		if(column >= Middle_box and column < Middle_box + Middle_box_w) and (row > upper_box + upper_box_h
+			and row < lower_box-15 ) then --the minus 15 chops off the last incomplete perforated square
+			 
+				--logic to make the preforated line start after top box
+				--the - upper_box - upper_box_h is the offset so that the modulus starts at 0 where
+				--I want the line to start
+				--I suspect the following if statement could be modified if Logic elements needs to reduced
+				if((row - upper_box - upper_box_h) mod 15 > 5) then		
+					RGB:= (others => '1');
+					end if;
+		end if;
+		
+		--MAKING THE PADDLES
+		if(column >= right_paddle_x and column < right_paddle_x + paddle_width) and (row >= right_paddle_y and row < right_paddle_y + paddle_height) then
+			RGB:= (others=>'1');
+		end if;
+		
+		if(column >= left_paddle_x and column < left_paddle_x + paddle_width) and (row >= left_paddle_y and row < left_paddle_y + paddle_height) then
+			RGB:= (others=>'1');
+		end if;
+		
+		red(3 downto 0) <= RGB(11 downto 8);
+		green(3 downto 0) <= RGB(7 downto 4);
+		blue(3 downto 0) <= RGB(3 downto 0);
+
+    ELSE                           --blanking time
+      red <= (OTHERS => '0');
+      green <= (OTHERS => '0');
+      blue <= (OTHERS => '0');
+    END IF;
+  
+  END PROCESS;
+END behavior;

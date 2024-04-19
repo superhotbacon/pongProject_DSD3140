@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/output_files/") File("PE2_gtbuckner42.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2a/output_files/") File("PE2_gtbuckner42.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
