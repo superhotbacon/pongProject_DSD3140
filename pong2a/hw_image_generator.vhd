@@ -71,16 +71,17 @@ ENTITY hw_image_generator IS
 	 paddle_width:in integer;
 	 paddle_height:in integer;
 	 
-	--signals for score boxes
-	score_w:	  			in integer; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
-	score_h:	  			in integer;	--NEEDS TO BE IN FORM OF SCALE FACTOR height will be 8 * score_h
-	score_spacing:		in integer;
-	--boxes will spawn from top left pixel
-	--spawn locations
-	left_score1: 		in integer; --msb of left score spa
-	left_score0: 		in integer;--lsb left score
-	right_score0:		in integer;
-	right_score1:		in integer;
+	 --THESE ARENT NEEDED IN THIS VERSION, kept in for documentation
+--	--signals for score boxes
+--	score_w:	  			in integer; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
+--	score_h:	  			in integer;	--NEEDS TO BE IN FORM OF SCALE FACTOR height will be 8 * score_h
+--	score_spacing:		in integer;
+--	--boxes will spawn from top left pixel
+--	--spawn locations
+--	left_score1: 		in integer; --msb of left score spa
+--	left_score0: 		in integer;--lsb left score
+--	right_score0:		in integer;
+--	right_score1:		in integer;
 	
 	volly_num:			in integer;
 	--actual score values
@@ -90,6 +91,8 @@ ENTITY hw_image_generator IS
 END hw_image_generator;
 
 ARCHITECTURE behavior OF hw_image_generator IS
+	--The following type is for the on screen scoreboard. This will be used in the other 
+	--versions of the project. I just left it in because I didn't want to delete it.
 	--need to find a way to upscale this image
 	--bit maps for the images--will be used for printing on screen scoreboard.
 	TYPE bit_map IS ARRAY (0 to 7, 0 to 7) of std_logic;
@@ -302,52 +305,6 @@ ARCHITECTURE behavior OF hw_image_generator IS
 	
 
 BEGIN
-	
-	--this should
-	changeColor:process(volly_num,disp_ena)
-	variable dir:std_logic:='1'; --1 for up, 0 for down
-	variable redVar:std_logic_vector(3 downto 0):="1111";--i want to make a red->purple->red shift
-	variable greenVar:std_logic_vector(3 downto 0):="0000";
-	variable blueVar: std_logic_vector(3 downto 0):="0000";
-	variable count:integer:=0;
-	begin
-	if volly_num > 2 then
-		redVar(3 downto 0) := (others => '1');
-		greenVar(3 downto 0) := (others => '0');
-		if(rising_edge(disp_ena)) then
-		
-			count:= count + 1;
-		
-			if count = 2000 then
-				count:= 0;
-				if dir = '1' then
-					blueVar:= blueVar + 1;
-				else
-					blueVar:= blueVar - 1;
-				end if;
-				if blueVar = "1111" then
-					dir:= '0';
-				elsif blueVar = "0000" then
-					dir:= '1';
-				end if;
-			end if;
-		end if;
-	else
-		--need to make this random
-		redVar(3 downto 0) := (others => '1');
-		greenVar(3 downto 0) := (others => '1');
-		blueVar(3 downto 0) := (others => '1');
-	end if;
-	
-	if(falling_edge(disp_ena)) then
-		color(11 downto 8) <= redVar;
-		color(7 downto 4) <= greenVar;
-		color(3 downto 0) <= blueVar;
-	end if;
-	
-	
-	end process;
-
 
 
 
@@ -386,45 +343,6 @@ BEGIN
 					RGB:= color;
 					end if;
 		end if;
-		
-
-		
-		--now for the color blocks
-		--for the leftmost score box
-		if(column >= left_score1 and column < (left_score1 + 32)) and (row >= score_y and row < score_y + 32) then
-			RGB:= (others => '0'); --draws background behind the numbers
-			if(getBitFromMap(x_bound =>left_score1, y_bound => score_y, column => column, row => row, 
-				score =>Player_L_score/10,score_w =>score_w, score_h => score_h) = '1') then
-				RGB:= color;
-			end if;
-		end if;
-		
-		if(column >= left_score0 and column < (left_score0 + 32)) and (row >= score_y and row < score_y + 32) then
-			RGB:= (others => '0');	
-			if(getBitFromMap(x_bound =>left_score0, y_bound => score_y, column => column, row => row, 
-				score =>Player_L_score mod 10, score_w =>score_w, score_h => score_h) = '1') then
-				RGB:=color;
-			end if;
-		end if;
-		
-		if(column >= right_score1 and column < (right_score1 + 32)) and (row >= score_y and row < score_y + 32) then
-			RGB:= (others => '0');
-			if(getBitFromMap(x_bound => right_score1, y_bound => score_y, column => column, row => row, 
-				score =>Player_R_score/10, score_w =>score_w, score_h => score_h) = '1') then
-				RGB:=color;	
-			end if;
-		end if;
-		
-		if(column >= right_score0 and column < (right_score0 + 32)) and (row >= score_y and row < score_y + 32) then
-			RGB:= (others => '0');	
-			if(getBitFromMap(x_bound => right_score0, y_bound => score_y, column => column, row => row, 
-				score =>Player_R_score mod 10, score_w =>score_w, score_h => score_h) = '1') then
-				RGB:=color;
-			end if;
-		end if;
-		
-		
-
 		
 		
 		--MAKING THE PADDLES

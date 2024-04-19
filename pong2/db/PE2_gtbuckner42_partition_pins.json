@@ -60,215 +60,115 @@
 					"strict" : false
 				},
 				{
-					"name" : "GSENSOR_CS_N",
+					"name" : "hex5[0]",
 					"strict" : false
 				},
 				{
-					"name" : "GSENSOR_SCLK",
+					"name" : "hex5[1]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[0]",
+					"name" : "hex5[2]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[1]",
+					"name" : "hex5[3]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[2]",
+					"name" : "hex5[4]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[3]",
+					"name" : "hex5[5]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[4]",
+					"name" : "hex5[6]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[5]",
+					"name" : "hex4[0]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[6]",
+					"name" : "hex4[1]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[7]",
+					"name" : "hex4[2]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[8]",
+					"name" : "hex4[3]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[9]",
+					"name" : "hex4[4]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[10]",
+					"name" : "hex4[5]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[11]",
+					"name" : "hex4[6]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[12]",
+					"name" : "hex1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[13]",
+					"name" : "hex1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[14]",
+					"name" : "hex1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "data_x[15]",
+					"name" : "hex1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[0]",
+					"name" : "hex1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[1]",
+					"name" : "hex1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[2]",
+					"name" : "hex1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[3]",
+					"name" : "hex0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[4]",
+					"name" : "hex0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[5]",
+					"name" : "hex0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[6]",
+					"name" : "hex0[3]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[7]",
+					"name" : "hex0[4]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[8]",
+					"name" : "hex0[5]",
 					"strict" : false
 				},
 				{
-					"name" : "data_y[9]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[10]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[11]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[12]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[13]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[14]",
-					"strict" : false
-				},
-				{
-					"name" : "data_y[15]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[0]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[1]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[2]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[3]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[4]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[5]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[6]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[7]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[8]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[9]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[10]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[11]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[12]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[13]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[14]",
-					"strict" : false
-				},
-				{
-					"name" : "data_z[15]",
-					"strict" : false
-				},
-				{
-					"name" : "buzz_sig",
-					"strict" : false
-				},
-				{
-					"name" : "GSENSOR_SDI",
-					"strict" : false
-				},
-				{
-					"name" : "GSENSOR_SDO",
+					"name" : "hex0[6]",
 					"strict" : false
 				},
 				{
@@ -280,11 +180,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "key1",
+					"name" : "Rotary_clk2",
 					"strict" : false
 				},
 				{
-					"name" : "Key0",
+					"name" : "Rotary_DT2",
 					"strict" : false
 				},
 				{
@@ -293,6 +193,14 @@
 				},
 				{
 					"name" : "Rotary_DT",
+					"strict" : false
+				},
+				{
+					"name" : "key1",
+					"strict" : false
+				},
+				{
+					"name" : "Key0",
 					"strict" : false
 				}
 			]

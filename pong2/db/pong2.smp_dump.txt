@@ -27,10 +27,3 @@ current_state.STATE_CLR_RD_INREG 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 current_state.STATE_CLR_WR_INREG 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 current_state.STATE_CLR_END 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 current_state.STATE_CLR_BUSY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-
-State Machine - |PE2_gtbuckner42|hw6p3Modified:accelerometer|ADXL345_controller:U0|gsensor:U0|spi:u0|state
-Name state.TO_IDLE state.ACTIVE state.TO_ACTIVE state.IDLE 
-state.IDLE 0 0 0 0 
-state.TO_ACTIVE 0 0 1 1 
-state.ACTIVE 0 1 0 1 
-state.TO_IDLE 1 0 0 1 

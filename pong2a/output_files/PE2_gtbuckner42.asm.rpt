@@ -1,5 +1,5 @@
 Assembler report for PE2_gtbuckner42
-Thu Apr 18 23:52:08 2024
+Fri Apr 19 15:55:28 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -39,7 +39,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Apr 18 23:52:08 2024 ;
+; Assembler Status      ; Successful - Fri Apr 19 15:55:28 2024 ;
 ; Revision Name         ; PE2_gtbuckner42                       ;
 ; Top-level Entity Name ; PE2_gtbuckner42                       ;
 ; Family                ; MAX 10                                ;
@@ -77,8 +77,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+--------------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                            ;
 +----------------+--------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x009E2BE5                                                                                                         ;
-; Checksum       ; 0x009E2BE5                                                                                                         ;
+; JTAG usercode  ; 0x0072B49C                                                                                                         ;
+; Checksum       ; 0x0072B49C                                                                                                         ;
 +----------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -88,15 +88,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Thu Apr 18 23:52:06 2024
+    Info: Processing started: Fri Apr 19 15:55:27 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off pong2 -c PE2_gtbuckner42
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Thu Apr 18 23:52:08 2024
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4750 megabytes
+    Info: Processing ended: Fri Apr 19 15:55:28 2024
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

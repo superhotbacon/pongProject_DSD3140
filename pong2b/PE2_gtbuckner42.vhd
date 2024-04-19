@@ -216,12 +216,11 @@ architecture vga_structural of PE2_gtbuckner42  is
 	signal left_paddle_x		:integer:= 40;
 	signal right_paddle_y	:integer:=240;
 	signal right_paddle_x	:integer:= 640 - 40;
-	signal paddle_width		:integer:=5;
+	signal paddle_width		:integer:=3;
 	signal paddle_height		:integer:=45;
 	signal left_paddle_middle  :integer:=left_paddle_y+paddle_height/2;
    signal right_paddle_middle :integer:=right_paddle_y+paddle_height/2;
-   signal y_factor_inv        :integer:=60; -- <BA> normalizes the y speed with which the ball bounces off of the left and right paddles
-	
+   	
 	--signals for score boxes
 	signal score_w				:integer:= 4; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
 	signal score_h				:integer:= 4; --NEEDS TO BE IN FORM OF SCALE FACTOR height will be 8 * score_h
@@ -240,12 +239,13 @@ architecture vga_structural of PE2_gtbuckner42  is
 	
 	signal player_L_scored	:std_logic:='0';
 	signal player_R_scored	:std_logic:='0';
+	signal y_factor_inv        :integer:=70; -- <BA> normalizes the y speed with which the ball bounces off of the left and right paddles
 	
 	--signals for ball
 	signal ball_speed			:integer;
 	signal ball1_col 			:integer:= 310;
 	signal ball1_row 			:integer:= 240;
-	signal ball_size			:integer:=10;
+	signal ball_size			:integer:=5;
 	signal ball1_row_middle :integer:= ball1_row+ball_size/2;
 	signal ball1_col_middle :integer:= ball1_col+ball_size/2;
 	
