@@ -1,5 +1,5 @@
 Timing Analyzer report for PE2_gtbuckner42
-Fri Apr 19 15:41:49 2024
+Sat Apr 20 20:51:00 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -95,15 +95,15 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 3.25        ;
+; Average used               ; 3.40        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  22.8%      ;
-;     Processor 3            ;  21.3%      ;
-;     Processor 4            ;  20.3%      ;
-;     Processors 5-12        ;  20.0%      ;
+;     Processor 2            ;  24.0%      ;
+;     Processor 3            ;  22.5%      ;
+;     Processor 4            ;  21.7%      ;
+;     Processors 5-12        ;  21.5%      ;
 +----------------------------+-------------+
 
 
@@ -112,7 +112,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                              ; Status ; Read at                  ;
 +------------------------------------------------------------+--------+--------------------------+
-; dual_boot/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Fri Apr 19 15:41:46 2024 ;
+; dual_boot/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Sat Apr 20 20:50:57 2024 ;
 +------------------------------------------------------------+--------+--------------------------+
 
 
@@ -1220,7 +1220,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Fri Apr 19 15:41:45 2024
+    Info: Processing started: Sat Apr 20 20:50:56 2024
 Info: Command: quartus_sta pong2 -c PE2_gtbuckner42
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1360,8 +1360,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 4991 megabytes
-    Info: Processing ended: Fri Apr 19 15:41:49 2024
+    Info: Processing ended: Sat Apr 20 20:51:00 2024
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:07
 
 

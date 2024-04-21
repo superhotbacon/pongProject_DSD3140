@@ -392,19 +392,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "key1",
-					"strict" : false
-				},
-				{
-					"name" : "Key0",
-					"strict" : false
-				},
-				{
 					"name" : "Rotary_clk",
 					"strict" : false
 				},
 				{
 					"name" : "Rotary_DT",
+					"strict" : false
+				},
+				{
+					"name" : "key1",
+					"strict" : false
+				},
+				{
+					"name" : "Key0",
 					"strict" : false
 				}
 			]

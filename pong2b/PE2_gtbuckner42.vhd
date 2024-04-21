@@ -122,6 +122,11 @@ architecture vga_structural of PE2_gtbuckner42  is
 	score_w:	  			in integer; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
 	score_h:	  			in integer;	--NEEDS TO BE IN FORM OF SCALE FACTOR height will be 8 * score_h
 	score_spacing:		in integer;
+	
+	Psuedo_Random_Num: in std_logic_vector(4 downto 0);
+	Psuedo_Random_Num2: in std_logic_vector(4 downto 0);
+	Psuedo_Random_Num3: in std_logic_vector(4 downto 0);
+	rst_ball: in std_logic;
 	--boxes will spawn from top left pixel
 	left_score1: 		in integer; --msb of left score
 	left_score0: 		in integer;--lsb left score
@@ -135,7 +140,6 @@ architecture vga_structural of PE2_gtbuckner42  is
 	end component;
 	
 	
-	--leaving this PRGN for later use in final project
 	component PRNG_gtbuckner42 is
 	  port(
 			seed: in std_logic_vector(20 downto 0); --seed cannot be all zero for good practice, input seed is 21 bits
@@ -239,7 +243,7 @@ architecture vga_structural of PE2_gtbuckner42  is
 	
 	signal player_L_scored	:std_logic:='0';
 	signal player_R_scored	:std_logic:='0';
-	signal y_factor_inv        :integer:=70; -- <BA> normalizes the y speed with which the ball bounces off of the left and right paddles
+	signal y_factor_inv        :integer:=90; -- <BA> normalizes the y speed with which the ball bounces off of the left and right paddles
 	
 	--signals for ball
 	signal ball_speed			:integer;
@@ -252,15 +256,16 @@ architecture vga_structural of PE2_gtbuckner42  is
 	--need seperate signals for resetting because You cannot have constant drivers
 	signal Rst_game			:std_logic;
 	signal rst_ball			:std_logic; --GB CHANGED 4/15/24
-	signal rst_counter		:std_logic; --GB CHANGED 4/15/24
-	signal rst_Player_scored:std_logic; --GB CHANGED 4/15/24 tells the 'moveball' process to reset Player_L_scored and Player_R_scored
 	--signals for randomness
 	signal seed: std_Logic_vector(20 downto 0):= "100101001110010101111"; --i randomly typed numbers
-	signal seed2:std_logic_vector(20 downto 0):= "010110100110111110001"; --i randomlly typed numbers again
+	signal seed2:std_logic_vector(20 downto 0):= "010110100110100110001"; --i randomlly typed numbers again
+	signal seed3:std_Logic_vector(20 downto 0):= "101101110100101010111"; --i randomly typed numbers
 	signal Psuedo_Random_Num: std_logic_vector(4 downto 0);
 	signal Psuedo_Random_Num2: std_logic_vector(4 downto 0);
+	signal Psuedo_Random_Num3: std_logic_vector(4 downto 0);
 	signal seed_set: std_logic;
 	signal seed_set2:std_logic;
+	signal seed_set3:std_logic;
 	
 	signal volly_num:integer:=0;
 	
@@ -286,7 +291,8 @@ begin
 			Psuedo_Random_Num=>Psuedo_Random_Num); 
 	PRGN_2 : PRNG_gtbuckner42 port map(seed => seed2, setSeed_asyn => seed_set2, clk => pll_OUT_to_vga_controller_IN,
 			Psuedo_Random_Num=>Psuedo_Random_Num2);		
-			
+	PRGN_3 : PRNG_gtbuckner42 port map(seed => seed3, setSeed_asyn => seed_set3, clk => pll_OUT_to_vga_controller_IN,
+			Psuedo_Random_Num=>Psuedo_Random_Num3);			
 			
 			
 			
@@ -304,7 +310,9 @@ begin
 			paddle_width => paddle_width, paddle_height =>paddle_height,
 			score_w => score_w, score_h => score_h, score_spacing => score_spacing, left_score1 => left_score1,
 			left_score0 => left_score0, right_score1 => right_score1, right_score0 => right_score0,
-			player_L_score => player_L_score, player_R_score => player_R_Score, volly_num => volly_num);
+			player_L_score => player_L_score, player_R_score => player_R_Score, volly_num => volly_num,
+			psuedo_Random_num => psuedo_random_num, psuedo_random_num2 => psuedo_Random_num2, 
+			psuedo_random_num3 => psuedo_random_num3,rst_ball => rst_ball);
 			
 	U4 : bcd_7segment port map (player_L_scoreLSBs, hex4);
 	U5 : bcd_7segment port map (player_L_scoreMSBs, hex5);	
@@ -361,12 +369,13 @@ begin
 		case Current_State is
 			when reset_game => 
 				Rst_game <= '1';
+				Rst_ball <= '0';
 			when volly =>
 				Rst_game <= '0';
 				Rst_ball <= '0';
 			when update_score_rst_ball => 	
-				rst_game <= '0';
-				--rst_ball <= '1';
+				rst_ball <= '1';
+				Rst_game <= '0';
 			when others => 
 		end case;
 	end process;	
@@ -391,7 +400,7 @@ begin
 				frameCounter:= 0;
 				enable:= 0;
 			else 
-				if player_L_score > 10 or player_R_score > 10 Or player_L_scored = '1' or player_R_scored = '1' then
+				if player_L_score > 10 or player_R_score > 10 then
 					if(frameCounter < 1000) then
 						if(counter mod 4 = 1) then
 							buzz_sig <= not buzz_sig;
@@ -437,8 +446,8 @@ begin
 	  variable y_inc  :integer:= 0;--in form of (pixels * 10000)
 	  variable RandNum:integer:= 0;
 	  variable RandNum2:integer:=0;
-	  variable x_speed_default:integer:=400; --min value 400 (feels right) max is round 900
-	  variable x_speed_max:integer:=900;
+	  variable x_speed_default:integer:=400; --min value 400 (feels right) max is round 1100
+	  variable x_speed_max:integer:=1100;
 	  variable ball_x_10000:integer:= 3200000*scalarx; --in form of (pixels * 10000)
 	  variable ball_y_10000:integer:= 2400000*scalary;	  
 	  variable var_L_score:std_logic_vector(7 downto 0):="00000000";
@@ -448,7 +457,6 @@ begin
 	 begin		
 		if(rising_edge(dispEN) and current_state = volly) then --calculate stuff while frame is being printed 
 			enable:= '1';
-			
 			RandNum:= to_integer(unsigned(Psuedo_Random_Num(3 downto 0))); --sets random number each frame
 			RandNum2:= to_integer(unsigned(Psuedo_Random_Num2(3 downto 0))); --sets random number each frame
 			if(Psuedo_Random_Num(4) = '1') then --I want to set the variable negative if msb is 1 
@@ -485,12 +493,12 @@ begin
 				if((ball_X + ball_size = right_paddle_x and ball_x < right_paddle_x + paddle_width) and (ball_y + ball_size >= right_paddle_y and ball_y < right_paddle_y + paddle_height)) then
 					--increase speed and check speed limit
 					if x_inc < 0 then
-							x_inc := x_inc - 5;
+							x_inc := x_inc - 10;
 							if x_inc < -x_speed_max then
 								x_inc:= -x_speed_max;
 							end if;
 						else
-							x_inc := x_inc + 5;
+							x_inc := x_inc + 10;
 							if x_inc > x_speed_max then
 								x_inc:= x_speed_max;
 							end if;
@@ -503,12 +511,12 @@ begin
 				if((ball_x = left_paddle_x + paddle_width and ball_x > left_paddle_x) and (ball_y + ball_size >= left_paddle_y and ball_y < left_paddle_y + paddle_height)) then
 					--increase speed and check speed limit
 					if x_inc < 0 then
-						x_inc := x_inc - 5;
+						x_inc := x_inc - 10;
 						if x_inc < -x_speed_max then
 							x_inc:= -x_speed_max;
 						end if;
 					else
-						x_inc := x_inc + 5;
+						x_inc := x_inc + 10;
 						if x_inc > x_speed_max then
 							x_inc:= x_speed_max;
 						end if;
@@ -564,26 +572,26 @@ begin
 						y_inc := ((RandNum2 * 10) rem (173*x_speed_default/100)); 
 						--considering y = randNum2*10000. this makes y a random num (use rem instead of mod)
 						--this then makes the angle less than 60 deg
-
+						
 					end if;
 					
 			---------------------------UPDATE SCOREBOARD------------------------------
 		 			if(current_state = update_score_rst_ball and enable = '1') then
 							--check who scored and increment score accordingly...
-							if Player_L_scored = '1' then
-							player_L_score <= player_L_score + 1;
-							var_L_score := var_L_score + 1;
-							--signals for seven segs below
-							Player_L_scoreLSBs <= std_logic_vector(to_unsigned((player_L_score + 1) mod 16,Player_L_scoreLSBs'length));
-							Player_L_scoreMSBs <= std_logic_vector(to_unsigned((player_L_score + 1) / 16,Player_L_scoreLSBs'length));
-							else
-							player_R_score <= Player_R_score + 1;
-							var_R_score := var_R_score + 1;
-							--this somehow breaks the scoreboard
-							Player_R_scoreLSBs <= std_logic_vector(to_unsigned((player_R_score + 1) mod 16,Player_R_scoreLSBs'length));
-							Player_R_scoreMSBs <= std_logic_vector(to_unsigned((player_R_score + 1) / 16,Player_R_scoreLSBs'length));
-							end if;
-						enable:='0';
+								if Player_L_scored = '1' then
+								player_L_score <= player_L_score + 1;
+								var_L_score := var_L_score + 1;
+								--signals for seven segs below
+								Player_L_scoreLSBs <= std_logic_vector(to_unsigned((player_L_score + 1) mod 16,Player_L_scoreLSBs'length));
+								Player_L_scoreMSBs <= std_logic_vector(to_unsigned((player_L_score + 1) / 16,Player_L_scoreLSBs'length));
+								else
+								
+								player_R_score <= Player_R_score + 1;
+								var_R_score := var_R_score + 1;
+								Player_R_scoreLSBs <= std_logic_vector(to_unsigned((player_R_score + 1) mod 16,Player_R_scoreLSBs'length));
+								Player_R_scoreMSBs <= std_logic_vector(to_unsigned((player_R_score + 1) / 16,Player_R_scoreLSBs'length));
+								end if;
+						enable:='0'; --gets set back to one when state enters volly
 						--seed the random numbers
 						RandNum:= to_integer(unsigned(Psuedo_Random_Num(3 downto 0))); --sets random number each frame
 						RandNum2:= to_integer(unsigned(Psuedo_Random_Num2(3 downto 0))); --sets random number each frame
@@ -763,4 +771,23 @@ begin
 			end if;
 		end if;	
 	end process;
+	
+	setSeedHandler3:process(pll_out_to_vga_controller_in, seed3)
+	variable startUpVar: integer:= 0; --will allow seed to be set
+	variable seed_current: std_logic_vector(20 downto 0);
+	begin
+		if rising_edge(pll_out_to_vga_controller_in) then
+			if(seed3 /= seed_current) then --detects change in seed
+			startUpVar:= 0;
+			end if;
+			if(startUpVar < 5) then --gives PRNG_gtbuckner42 5 clk cyles to set seed
+				seed_current := seed2;
+				seed_set3 <= '1';
+				startUpVar:= startUpVar + 1;
+			else
+				seed_set3 <= '0';
+			end if;
+		end if;	
+	end process;
+	
 end vga_structural;

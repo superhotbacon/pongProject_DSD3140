@@ -1,5 +1,5 @@
 Fitter report for PE2_gtbuckner42
-Fri Apr 19 15:41:41 2024
+Sat Apr 20 20:50:52 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -73,7 +73,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Apr 19 15:41:41 2024       ;
+; Fitter Status                      ; Successful - Sat Apr 20 20:50:52 2024       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; PE2_gtbuckner42                             ;
 ; Top-level Entity Name              ; PE2_gtbuckner42                             ;
@@ -159,19 +159,20 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.73        ;
+; Average used               ; 1.72        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   8.2%      ;
-;     Processor 3            ;   7.2%      ;
-;     Processor 4            ;   7.0%      ;
-;     Processor 5            ;   6.8%      ;
+;     Processor 2            ;   8.0%      ;
+;     Processor 3            ;   7.0%      ;
+;     Processor 4            ;   6.8%      ;
+;     Processor 5            ;   6.7%      ;
 ;     Processor 6            ;   6.5%      ;
 ;     Processor 7            ;   6.4%      ;
 ;     Processor 8            ;   6.3%      ;
-;     Processors 9-12        ;   6.1%      ;
+;     Processor 9            ;   6.0%      ;
+;     Processors 10-12       ;   6.0%      ;
 +----------------------------+-------------+
 
 
@@ -2483,8 +2484,8 @@ Info (170195): Router estimated average interconnect usage is 4% of the availabl
     Info (170196): Router estimated peak interconnect usage is 30% of the available device resources in the region that extends from location X45_Y22 to location X55_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:10
-Info (11888): Total time spent on timing analysis during the Fitter is 4.85 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:11
+Info (11888): Total time spent on timing analysis during the Fitter is 5.02 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2495,10 +2496,10 @@ Warning (169064): Following 2 pins have no output enable or a GND or VCC output 
     Info (169065): Pin GSENSOR_SDO has a permanently disabled output enable File: C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/PE2_gtbuckner42.vhd Line: 35
 Info (144001): Generated suppressed messages file C:/Users/gabeb/VHDLProjects/Final_Project/project_git/pongProject/pong2/output_files/PE2_gtbuckner42.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6337 megabytes
-    Info: Processing ended: Fri Apr 19 15:41:42 2024
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 6352 megabytes
+    Info: Processing ended: Sat Apr 20 20:50:53 2024
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +----------------------------+

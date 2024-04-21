@@ -71,6 +71,11 @@ ENTITY hw_image_generator IS
 	 paddle_width:in integer;
 	 paddle_height:in integer;
 	 
+	Psuedo_Random_Num: in std_logic_vector(4 downto 0);
+	Psuedo_Random_Num2: in std_logic_vector(4 downto 0);
+	Psuedo_Random_Num3: in std_logic_vector(4 downto 0);
+	rst_ball: in std_logic;
+	 
 	--signals for score boxes
 	score_w:	  			in integer; --NEEDS TO BE IN FORM OF SCALE FACTOR width will be 8 * score_w
 	score_h:	  			in integer;	--NEEDS TO BE IN FORM OF SCALE FACTOR height will be 8 * score_h
@@ -295,7 +300,7 @@ ARCHITECTURE behavior OF hw_image_generator IS
 		
 	 return return_bit;
 	end function;		  
-								  
+								  		 
 									 
 	signal color: std_logic_vector(11 downto 0):= (others => '1');
 	signal score_y: integer:= 80;
@@ -307,38 +312,61 @@ BEGIN
 	changeColor:process(volly_num,disp_ena)
 	variable dir:std_logic:='1'; --1 for up, 0 for down
 	variable redVar:std_logic_vector(3 downto 0):="1111";--i want to make a red->purple->red shift
-	variable greenVar:std_logic_vector(3 downto 0):="0000";
-	variable blueVar: std_logic_vector(3 downto 0):="0000";
+	variable greenVar:std_logic_vector(3 downto 0):="1111";
+	variable blueVar: std_logic_vector(3 downto 0):="1111";
 	variable count:integer:=0;
+	variable enable:integer:=1;
+   variable RandNum:std_logic_vector(4 downto 0);
+   variable RandNum2:std_logic_vector(4 downto 0);	
 	begin
-	if volly_num > 2 then
-		redVar(3 downto 0) := (others => '1');
-		greenVar(3 downto 0) := (others => '0');
-		if(rising_edge(disp_ena)) then
+	
+	--resets color if rstBall is high
+	if(rising_edge(disp_ena)) then
+	
 		
-			count:= count + 1;
+		if volly_num >= 14 then
+			redVar(3 downto 0) := (others => '1');
+			greenVar(3 downto 0) := (others => '0');
+			
+			
+				count:= count + 1;
+			
+				if count = 2000 then
+					count:= 0;
+					if dir = '1' then
+						blueVar:= blueVar + 1;
+					else
+						blueVar:= blueVar - 1;
+					end if;
+					if blueVar = "1111" then
+						dir:= '0';
+					elsif blueVar = "0000" then
+						dir:= '1';
+					end if;
+				end if;
 		
-			if count = 2000 then
-				count:= 0;
-				if dir = '1' then
-					blueVar:= blueVar + 1;
-				else
-					blueVar:= blueVar - 1;
-				end if;
-				if blueVar = "1111" then
-					dir:= '0';
-				elsif blueVar = "0000" then
-					dir:= '1';
-				end if;
-			end if;
+		
+		elsif(rst_ball = '1' and enable = 1) then
+			enable:= 0;
+			blueVar(2):= '1';
+			greenVar(2):='1';
+			redVar(2):='1';
+			redVar(1 downto 0):= psuedo_random_num(1 downto 0);
+			redVar(3):= psuedo_random_num(3) or psuedo_random_num(2);
+			greenVar(1 downto 0):= psuedo_random_num2(1 downto 0);
+			greenVar(3):= psuedo_random_num2(3) or psuedo_random_num2(2);
+			blueVar(1 downto 0):= psuedo_random_num3(1 downto 0);
+			blueVar(3):= psuedo_random_num3(3) or psuedo_random_num3(2);
+			--ensures screen is never black
+
+		elsif enable = 0 and rst_ball = '0' then
+			enable:= 1;
 		end if;
-	else
-		--need to make this random
-		redVar(3 downto 0) := (others => '1');
-		greenVar(3 downto 0) := (others => '1');
-		blueVar(3 downto 0) := (others => '1');
 	end if;
 	
+	
+	
+
 	if(falling_edge(disp_ena)) then
 		color(11 downto 8) <= redVar;
 		color(7 downto 4) <= greenVar;

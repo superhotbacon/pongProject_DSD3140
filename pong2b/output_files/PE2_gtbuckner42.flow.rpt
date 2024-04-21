@@ -1,5 +1,5 @@
 Flow report for PE2_gtbuckner42
-Fri Apr 19 16:07:51 2024
+Sat Apr 20 21:10:14 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 19 16:07:45 2024       ;
+; Flow Status                        ; Successful - Sat Apr 20 21:10:08 2024       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; PE2_gtbuckner42                             ;
 ; Top-level Entity Name              ; PE2_gtbuckner42                             ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 14,190 / 49,760 ( 29 % )                    ;
-;     Total combinational functions  ; 14,074 / 49,760 ( 28 % )                    ;
-;     Dedicated logic registers      ; 837 / 49,760 ( 2 % )                        ;
-; Total registers                    ; 837                                         ;
+; Total logic elements               ; 14,300 / 49,760 ( 29 % )                    ;
+;     Total combinational functions  ; 14,144 / 49,760 ( 28 % )                    ;
+;     Dedicated logic registers      ; 916 / 49,760 ( 2 % )                        ;
+; Total registers                    ; 916                                         ;
 ; Total pins                         ; 143 / 360 ( 40 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/19/2024 16:06:26 ;
+; Start date & time ; 04/20/2024 21:08:49 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PE2_gtbuckner42     ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-------------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                       ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+-------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 233730242736449.171356078613540                             ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 233730242736449.171366532931928                             ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                          ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                           ; --            ; --          ; --         ;
 ; MISC_FILE                           ; dual_boot/synthesis/../dual_boot.cmp                        ; --            ; --          ; --         ;
@@ -108,11 +108,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 5026 MB             ; 00:00:10                           ;
-; Fitter               ; 00:00:51     ; 1.7                     ; 6416 MB             ; 00:00:37                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4777 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:05     ; 3.8                     ; 5033 MB             ; 00:00:11                           ;
-; Total                ; 00:01:20     ; --                      ; --                  ; 00:00:59                           ;
+; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 5026 MB             ; 00:00:09                           ;
+; Fitter               ; 00:00:52     ; 1.7                     ; 6425 MB             ; 00:00:32                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4781 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:05     ; 3.9                     ; 5029 MB             ; 00:00:11                           ;
+; Total                ; 00:01:20     ; --                      ; --                  ; 00:00:53                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
